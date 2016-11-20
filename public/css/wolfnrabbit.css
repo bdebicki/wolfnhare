@@ -302,3 +302,15 @@ a:hover {
   position: relative;
   background: #fff;
 }
+/* GAME CHARACTER: Wolf */
+#wolf {
+  width: 50px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  background: blue;
+}
+#wolf.centered {
+  margin-left: -25px;
+  left: 50%;
+}

@@ -1,0 +1,16 @@
+/* GAME CHARACTER: Wolf */
+@wolfWidth: 50px;
+
+
+#wolf {
+	width: @wolfWidth;
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+	background: blue;
+
+	&.centered {
+		margin-left: -@wolfWidth / 2;
+		left: 50%;
+	}
+}
