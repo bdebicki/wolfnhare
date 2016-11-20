@@ -1,27 +1,36 @@
 var wolf = {
-    wolfCharacter: null,
-    basket: null,
-
-    wolfId: 'wolf',
     wolfAreaId: 'wolfArea',
 
-    renderBasket: function() {
-        basket = document.createElement('span');
-        basket.classList.add('basket', 'onBottomLeft');
+    basket: {
+        basketClass: 'basket',
+        onTopLeft: 'onTopLeft',
+        onTopRight: 'onTopRight',
+        onBottomLeft: 'onBottomLeft',
+        onBottomRight: 'onBottomRight',
+        defaultPosition: function() {return this.onBottomLeft},
 
-        return basket;
+        renderBasket: function() {
+            basketElement = document.createElement('span');
+            basketElement.classList.add(this.basketClass, this.defaultPosition());
+
+            return basketElement;
+        }
     },
 
-    renderWolf: function() {
-        wolfCharacter = document.createElement('div');
-        wolfCharacter.setAttribute('id', (this.wolfId));
-        wolfCharacter.appendChild(this.renderBasket());
+    wolfBody: {
+        wolfId: 'wolf',
 
-        return wolfCharacter;
+        renderWolf: function() {
+            wolfBodyElement = document.createElement('div');
+            wolfBodyElement.setAttribute('id', (this.wolfId));
+            wolfBodyElement.appendChild(wolf.basket.renderBasket());
+
+            return wolfBodyElement;
+        }
     },
 
     render: function () {
-        document.getElementById(this.wolfAreaId).appendChild(this.renderWolf());
+        document.getElementById(this.wolfAreaId).appendChild(this.wolfBody.renderWolf());
     }
 };
 
