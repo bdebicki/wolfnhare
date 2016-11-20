@@ -1,4 +1,4 @@
-var wolf = {
+var WOLF = {
     wolfAreaId: 'wolfArea',
 
     basket: {
@@ -19,11 +19,13 @@ var wolf = {
 
     wolfBody: {
         wolfId: 'wolf',
+        onLeftSide: 'onLeft',
+        onRightSide: 'onRight',
 
         renderWolf: function() {
             wolfBodyElement = document.createElement('div');
             wolfBodyElement.setAttribute('id', (this.wolfId));
-            wolfBodyElement.appendChild(wolf.basket.renderBasket());
+            wolfBodyElement.appendChild(WOLF.basket.renderBasket());
 
             return wolfBodyElement;
         }
@@ -34,4 +36,4 @@ var wolf = {
     }
 };
 
-wolf.render();
+WOLF.render();
