@@ -13,11 +13,6 @@ body {
 	font-family: Tahoma, sans-serif;
 	font-size: @baseFontSize;
 	line-height: @baseLineHeight;
-
-	@media screen and (max-width: 1279px) {
-		font-size: @baseFontSize - 1;
-		line-height: @baseLineHeight - 2;
-	}
 }
 
 h1 {
@@ -26,19 +21,6 @@ h1 {
 	font-style: italic;
 	font-weight: normal;
 	line-height: @bigLineHeight;
-
-	@media screen and (max-width: 1279px) {
-		font-size: @bigFontSize - 4;
-		line-height: @bigLineHeight - 4;
-	}
-	@media screen and (max-width: 600px) {
-		font-size: @bigFontSize - 10;
-		line-height: @bigLineHeight - 10;
-	}
-	@media screen and (max-width: 479px) {
-		font-size: @bigFontSize - 20;
-		line-height: @bigLineHeight - 20;
-	}
 }
 h2 {
 	color: @lightGray;
@@ -47,30 +29,6 @@ h2 {
 	letter-spacing: 10px;
 	line-height: 20px;
 	text-transform: uppercase;
-
-	@media screen and (max-width: 600px) {
-		font-size: 13px;
-		line-height: 18px;
-	}
-	@media screen and (max-width: 479px) {
-		font-size: 12px;
-		line-height: 16px;
-		letter-spacing: 8px;
-	}
-	&.bolder {
-		font-weight: bold;
-		letter-spacing: 17px;
-
-		@media screen and (max-width: 768px) and (min-width: 568px) {
-			letter-spacing: 13px;
-		}
-		@media screen and (max-width: 567px) and (min-width: 381px) {
-			letter-spacing: 9px;
-		}
-		@media screen and (max-width: 380px) {
-			letter-spacing: 7px;
-		}
-	}
 }
 
 p,
