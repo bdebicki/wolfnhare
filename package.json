@@ -1,12 +1,12 @@
 {
-  "name": "starter",
+  "name": "wolf-n-rabbit",
   "version": "1.0.0",
   "author": "Bartosz Dębicki",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bdebicki/starter"
+    "url": "git://bitbucket.org:bdebicki/wolfnrabbit"
   },
-  "description": "projects starter",
+  "description": "Wolf'n'Rabbit - JS port of old Russian PRL time game",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-less": "^3.3.0",
