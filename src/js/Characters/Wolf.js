@@ -1,16 +1,30 @@
 var wolf = {
+    wolfCharacter: null,
+    basket: null,
+
     wolfId: 'wolf',
     wolfAreaId: 'wolfArea',
     defaultPosition: 'centered',
 
+    renderBasket: function() {
+        basket = document.createElement('span');
+        basket.classList.add('basket', 'onBottomLeft');
+
+        return basket;
+    },
+
     renderWolf: function() {
-        var wolfCharacter = document.createElement('div');
-
+        wolfCharacter = document.createElement('div');
         wolfCharacter.setAttribute('id', (this.wolfId));
-        wolfCharacter.classList.add(wolf.defaultPosition);
+        wolfCharacter.classList.add(this.defaultPosition);
+        wolfCharacter.appendChild(this.renderBasket());
 
-        document.getElementById(this.wolfAreaId).appendChild(wolfCharacter);
+        return wolfCharacter;
+    },
+
+    render: function () {
+        document.getElementById(this.wolfAreaId).appendChild(this.renderWolf());
     }
 };
 
-wolf.renderWolf();
+wolf.render();

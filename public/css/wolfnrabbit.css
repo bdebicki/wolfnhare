@@ -314,3 +314,25 @@ a:hover {
   margin-left: -25px;
   left: 50%;
 }
+#wolf .basket {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: blue;
+}
+#wolf .basket.onTopLeft {
+  top: 10px;
+  left: -30px;
+}
+#wolf .basket.onTopRight {
+  top: 10px;
+  right: -30px;
+}
+#wolf .basket.onBottomLeft {
+  bottom: 10px;
+  left: -30px;
+}
+#wolf .basket.onBottomRight {
+  bottom: 10px;
+  right: -30px;
+}

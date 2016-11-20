@@ -1,5 +1,7 @@
 /* GAME CHARACTER: Wolf */
 @wolfWidth: 50px;
+@basketSize: 20px;
+@basketOffset: 10px;
 
 
 #wolf {
@@ -12,5 +14,29 @@
 	&.centered {
 		margin-left: -@wolfWidth / 2;
 		left: 50%;
+	}
+
+	.basket {
+		width: @basketSize;
+		height: @basketSize;
+		position: absolute;
+		background: blue;
+
+		&.onTopLeft {
+			top: @basketOffset;
+			left: -@basketSize - @basketOffset;
+		}
+		&.onTopRight {
+			top: @basketOffset;
+			right: -@basketSize - @basketOffset;
+		}
+		&.onBottomLeft {
+			bottom: @basketOffset;
+			left: -@basketSize - @basketOffset;
+		}
+		&.onBottomRight {
+			bottom: @basketOffset;
+			right: -@basketSize - @basketOffset;
+		}
 	}
 }
