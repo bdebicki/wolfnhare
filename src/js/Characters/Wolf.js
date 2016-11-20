@@ -4,7 +4,6 @@ var wolf = {
 
     wolfId: 'wolf',
     wolfAreaId: 'wolfArea',
-    defaultPosition: 'centered',
 
     renderBasket: function() {
         basket = document.createElement('span');
@@ -16,7 +15,6 @@ var wolf = {
     renderWolf: function() {
         wolfCharacter = document.createElement('div');
         wolfCharacter.setAttribute('id', (this.wolfId));
-        wolfCharacter.classList.add(this.defaultPosition);
         wolfCharacter.appendChild(this.renderBasket());
 
         return wolfCharacter;
