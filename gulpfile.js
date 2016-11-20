@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 // build css file task
 gulp.task('less', function() {
-    gulp.src('./less/application.less')
+    gulp.src('./less/wolfnrabbit.less')
         .pipe(less())
         .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
         .pipe(gulp.dest('./css/'));
@@ -14,7 +14,7 @@ gulp.task('less', function() {
 
 // build minified css file task
 gulp.task('less:minify', function() {
-    gulp.src('./less/application.less')
+    gulp.src('./less/wolfnrabbit.less')
         .pipe(less())
         .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
         .pipe(minify())
