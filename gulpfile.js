@@ -2,26 +2,26 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
     autoprefixer = require('gulp-autoprefixer'),
-    minify = require('gulp-minify-css')
+    minify = require('gulp-minify-css');
 
 // build css file task
 gulp.task('less', function() {
-    gulp.src('./less/wolfnrabbit.less')
+    gulp.src('./src/less/wolfnrabbit.less')
         .pipe(less())
         .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
-        .pipe(gulp.dest('./css/'));
+        .pipe(gulp.dest('./public/css/'));
 });
 
 // build minified css file task
 gulp.task('less:minify', function() {
-    gulp.src('./less/wolfnrabbit.less')
+    gulp.src('./src/less/wolfnrabbit.less')
         .pipe(less())
         .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
         .pipe(minify())
-        .pipe(gulp.dest('./css/'));
+        .pipe(gulp.dest('./public/css/'));
 });
 
 // css watch task
 gulp.task('watch:less', function() {
-    gulp.watch('./less/**/*.less', ['less'])
+    gulp.watch('./src/less/**/*.less', ['less'])
 });
