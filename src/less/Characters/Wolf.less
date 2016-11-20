@@ -8,19 +8,19 @@
 #wolf {
 	width: @wolfWidth;
 	height: 100px;
-	position: relative;
+	position: absolute;
+	bottom: 0;
 	background: blue;
 
-	&:not(.onLeft):not(onRight) {
-		margin: 0 auto;
+	&:not(.onLeft):not(.onRight) {
+		margin-left: -@wolfWidth / 2;
+		left: 50%;
 	}
 	&.onLeft {
-		margin-left: @wolfOffset;
-		float: left;
+		left: @wolfOffset;
 	}
 	&.onRight {
-		margin-right: @wolfOffset;
-		float: right;
+		right: @wolfOffset;
 	}
 
 	.basket {
