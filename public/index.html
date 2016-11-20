@@ -18,6 +18,19 @@
         <section id="wolfArea"></section>
     </div>
 
+    <dl class="temp-controls temp-wolfPosition">
+        <dt>wolf position:</dt>
+        <dd><button onclick="WOLF.setWolfPosition('onLeftSide')">left</button></dd>
+        <dd><button onclick="WOLF.setWolfPosition('onRightSide')">right</button></dd>
+    </dl>
+    <dl class="temp-controls temp-basketPosition">
+        <dt>basket position:</dt>
+        <dd><button onclick="WOLF.setBasketPosition('onTopLeft')">top left</button></dd>
+        <dd><button onclick="WOLF.setBasketPosition('onBottomLeft')">bottom left</button></dd>
+        <dd><button onclick="WOLF.setBasketPosition('onTopRight')">top right</button></dd>
+        <dd><button onclick="WOLF.setBasketPosition('onBottomRight')">bottom right</button></dd>
+    </dl>
+
     <script type="text/javascript" src="./js/Characters/Wolf.js"></script>
     <script type="text/javascript" src="./js/Actions/Wolf.js"></script>
 </body>
