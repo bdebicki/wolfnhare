@@ -1,0 +1,49 @@
+/* GAME CHARACTER: Wolf */
+@wolfWidth: 50px;
+@basketSize: 20px;
+@basketOffset: 10px;
+@wolfOffset: @basketSize + @basketOffset;
+
+
+#wolf {
+	width: @wolfWidth;
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+	background: blue;
+
+	&:not(.onLeft):not(.onRight) {
+		margin-left: -@wolfWidth / 2;
+		left: 50%;
+	}
+	&.onLeft {
+		left: @wolfOffset;
+	}
+	&.onRight {
+		right: @wolfOffset;
+	}
+
+	.basket {
+		width: @basketSize;
+		height: @basketSize;
+		position: absolute;
+		background: blue;
+
+		&.onTopLeft {
+			top: @basketOffset;
+			left: -@basketSize - @basketOffset;
+		}
+		&.onTopRight {
+			top: @basketOffset;
+			right: -@basketSize - @basketOffset;
+		}
+		&.onBottomLeft {
+			bottom: @basketOffset;
+			left: -@basketSize - @basketOffset;
+		}
+		&.onBottomRight {
+			bottom: @basketOffset;
+			right: -@basketSize - @basketOffset;
+		}
+	}
+}
