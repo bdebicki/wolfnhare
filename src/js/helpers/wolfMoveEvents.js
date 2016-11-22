@@ -1,10 +1,13 @@
 WOLF = (function (scope) {
-    window.addEventListener('keydown', function(event) {
-        var leftTopKey = 's',
-            leftBottomKey = 'x',
-            rightTopKey = 'l',
-            rightBottomKey = ',';
+    var leftTopKey = 's',
+        leftBottomKey = 'x',
+        rightTopKey = 'l',
+        rightBottomKey = ',',
+        clickEventCondition = function (event, trigger) {
+            return event.target.classList.contains(WOLFNAVIGATION[trigger]);
+        };
 
+    window.addEventListener('keydown', function(event) {
         if (event.defaultPrevented) {
             return null;
         }
@@ -31,13 +34,13 @@ WOLF = (function (scope) {
 
     for (var i = 0, navBtns = WOLFNAVIGATION.navBtn(); i < navBtns.length; i++) {
         navBtns[i].addEventListener('click', function(event) {
-            if (event.target.classList.contains(WOLFNAVIGATION.topLeftBtn)) {
+            if (clickEventCondition(event, 'topLeftBtn')) {
                 WOLF.setWolfPose('onLeftSide', 'onTopLeft');
-            } else if (event.target.classList.contains(WOLFNAVIGATION.bottomLeftBtn)) {
+            } else if (clickEventCondition(event, 'bottomLeftBtn')) {
                 WOLF.setWolfPose('onLeftSide', 'onBottomLeft');
-            } else if (event.target.classList.contains(WOLFNAVIGATION.topRightBtn)) {
+            } else if (clickEventCondition(event, 'topRightBtn')) {
                 WOLF.setWolfPose('onRightSide', 'onTopRight');
-            } else if (event.target.classList.contains(WOLFNAVIGATION.bottomRightBtn)) {
+            } else if (clickEventCondition(event, 'bottomRightBtn')) {
                 WOLF.setWolfPose('onRightSide', 'onBottomRight');
             }
         }, false);
