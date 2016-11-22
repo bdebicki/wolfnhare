@@ -1,14 +1,12 @@
 var WOLFNAVIGATION = {
-    options: {
         navId: 'wolfNavigation',
         navBtnClass: 'navigationBtn',
-        topLeftBtnClass: 'topLeft',
-        bottomLeftBtnClass: 'bottomLeft',
-        topRightBtnClass: 'topRight',
-        bottomRightBtnClass: 'bottomRight'
-    },
+        topLeftBtn: 'topLeft',
+        bottomLeftBtn: 'bottomLeft',
+        topRightBtn: 'topRight',
+        bottomRightBtn: 'bottomRight',
 
     navBtn: function() {
-        return document.getElementById(this.options.navId).getElementsByClassName(this.options.navBtnClass);
+        return document.getElementById(this.navId).getElementsByClassName(this.navBtnClass);
     }
 };

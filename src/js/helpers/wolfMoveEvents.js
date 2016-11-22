@@ -31,13 +31,13 @@ WOLF = (function (scope) {
 
     for (var i = 0, navBtns = WOLFNAVIGATION.navBtn(); i < navBtns.length; i++) {
         navBtns[i].addEventListener('click', function(event) {
-            if (event.target.classList.contains(WOLFNAVIGATION.options.topLeftBtnClass)) {
+            if (event.target.classList.contains(WOLFNAVIGATION.topLeftBtn)) {
                 WOLF.setWolfPose('onLeftSide', 'onTopLeft');
-            } else if (event.target.classList.contains(WOLFNAVIGATION.options.bottomLeftBtnClass)) {
+            } else if (event.target.classList.contains(WOLFNAVIGATION.bottomLeftBtn)) {
                 WOLF.setWolfPose('onLeftSide', 'onBottomLeft');
-            } else if (event.target.classList.contains(WOLFNAVIGATION.options.topRightBtnClass)) {
+            } else if (event.target.classList.contains(WOLFNAVIGATION.topRightBtn)) {
                 WOLF.setWolfPose('onRightSide', 'onTopRight');
-            } else if (event.target.classList.contains(WOLFNAVIGATION.options.bottomRightBtnClass)) {
+            } else if (event.target.classList.contains(WOLFNAVIGATION.bottomRightBtn)) {
                 WOLF.setWolfPose('onRightSide', 'onBottomRight');
             }
         }, false);
