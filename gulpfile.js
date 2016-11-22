@@ -4,7 +4,11 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     minify = require('gulp-minify-css'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    jsFilesList = ['./src/js/characters/wolf.js',
+                   './src/js/actions/wolf.js',
+                   './src/js/components/wolfNavigation.js',
+                   './src/js/helpers/wolfMoveEvents.js'];
 
 // build css file task
 gulp.task('less', function() {
@@ -25,21 +29,14 @@ gulp.task('less:minify', function() {
 
 // build js file task
 gulp.task('js', function() {
-    return gulp.src(['./src/js/characters/wolf.js',
-                     './src/js/actions/wolf.js',
-                     './src/js/components/wolfNavigation.js',
-                     './src/js/helpers/wolfMoveEvents.js'])
+    return gulp.src(jsFilesList)
         .pipe(concat('wolfnhare.js'))
         .pipe(gulp.dest('./public/js/'));
 });
 
 // build minified js file task
 gulp.task('js:minify', function() {
-    return gulp.src(['./src/js/characters/wolf.js',
-                     './src/js/actions/wolf.js',
-                     './src/js/components/wolfNavigation.js',
-                     './src/js/helpers/wolfMoveEvents.js'])
-        .pipe(concat('wolfnhare.js'))
+    return gulp.src(jsFilesList)
         .pipe(uglify())
         .pipe(gulp.dest('./public/js/'));
 });
@@ -47,4 +44,7 @@ gulp.task('js:minify', function() {
 // css watch task
 gulp.task('watch:less', function() {
     gulp.watch('./src/less/**/*.less', ['less'])
+});
+gulp.task('watch:js', function() {
+    gulp.watch('./src/js/**/*.js', ['js'])
 });
