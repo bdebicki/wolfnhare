@@ -45,6 +45,15 @@ gulp.task('js:minify', function() {
 gulp.task('watch:less', function() {
     gulp.watch('./src/less/**/*.less', ['less'])
 });
+
+// js watch task
 gulp.task('watch:js', function() {
     gulp.watch('./src/js/**/*.js', ['js'])
 });
+
+// global watch task
+gulp.task('watch', ['watch:less', 'watch:js'], function () {});
+
+// global build task
+
+// global build task minified
