@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     symlink = require('gulp-symlink'),
+    del = require('del'),
+    public = './public/',
     lessPackageFile = './src/less/wolfnhare.less',
     lessFiles = './src/less/**/*.less',
     lessFileDest = './public/css/',
@@ -22,6 +24,11 @@ var gulp = require('gulp'),
     symlinkDestList = ['./public/fonts',
                        './public/images',
                        './public/index.html'];
+
+// remove public folder
+gulp.task('clean:public', function () {
+   return del(public);
+});
 
 // build css file task
 gulp.task('less', function() {
@@ -69,13 +76,13 @@ gulp.task('watch:js', function() {
 gulp.task('watch', ['watch:less', 'watch:js'], function () {});
 
 // global build task
-gulp.task('build', ['less', 'js'], function () {
+gulp.task('build', ['clean:public', 'less', 'js'], function () {
     return gulp.src(symlinkSrcList)
         .pipe(symlink(symlinkDestList));
 });
 
 // global build minified task
-gulp.task('build:minify', ['less:minify', 'js:minify'], function () {
+gulp.task('build:minify', ['clean:public', 'less:minify', 'js:minify'], function () {
     return gulp.src(symlinkSrcList)
         .pipe(symlink(symlinkDestList));
 });
