@@ -36,14 +36,15 @@ gulp.task('less:minify', function() {
 
 // build js file task
 gulp.task('js', function() {
-    return gulp.src(jsFilesList)
+    gulp.src(jsFilesList)
         .pipe(concat('wolfnhare.js'))
         .pipe(gulp.dest('./public/js/'));
 });
 
 // build minified js file task
 gulp.task('js:minify', function() {
-    return gulp.src(jsFilesList)
+    gulp.src(jsFilesList)
+        .pipe(concat('wolfnhare.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./public/js/'));
 });
@@ -63,8 +64,12 @@ gulp.task('watch', ['watch:less', 'watch:js'], function () {});
 
 // global build task
 gulp.task('build', ['less', 'js'], function () {
-    return gulp.src(symlinkSrcList)
-               .pipe(symlink(symlinkDestList));
+    gulp.src(symlinkSrcList)
+        .pipe(symlink(symlinkDestList));
 });
 
-// global build task minified
+// global build minified task
+gulp.task('build:minify', ['less:minify', 'js:minify'], function () {
+    gulp.src(symlinkSrcList)
+        .pipe(symlink(symlinkDestList));
+});
