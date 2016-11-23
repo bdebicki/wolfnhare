@@ -33,33 +33,33 @@ gulp.task('clean:public', function () {
 // build css file task
 gulp.task('less', function() {
     return gulp.src(lessPackageFile)
-        .pipe(less())
-        .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
-        .pipe(gulp.dest(lessFileDest));
+               .pipe(less())
+               .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
+               .pipe(gulp.dest(lessFileDest));
 });
 
 // build minified css file task
 gulp.task('less:minify', function() {
     return gulp.src(lessPackageFile)
-        .pipe(less())
-        .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
-        .pipe(minify())
-        .pipe(gulp.dest(lessFileDest));
+               .pipe(less())
+               .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
+               .pipe(minify())
+               .pipe(gulp.dest(lessFileDest));
 });
 
 // build js file task
 gulp.task('js', function() {
     return gulp.src(jsFilesList)
-        .pipe(concat(jspackageFile))
-        .pipe(gulp.dest(jsFileDest));
+               .pipe(concat(jspackageFile))
+               .pipe(gulp.dest(jsFileDest));
 });
 
 // build minified js file task
 gulp.task('js:minify', function() {
     return gulp.src(jsFilesList)
-        .pipe(concat(jspackageFile))
-        .pipe(uglify())
-        .pipe(gulp.dest(jsFileDest));
+               .pipe(concat(jspackageFile))
+               .pipe(uglify())
+               .pipe(gulp.dest(jsFileDest));
 });
 
 // css watch task
@@ -78,11 +78,11 @@ gulp.task('watch', ['watch:less', 'watch:js'], function () {});
 // global build task
 gulp.task('build', ['clean:public', 'less', 'js'], function () {
     return gulp.src(symlinkSrcList)
-        .pipe(symlink(symlinkDestList));
+               .pipe(symlink(symlinkDestList));
 });
 
 // global build minified task
 gulp.task('build:minify', ['clean:public', 'less:minify', 'js:minify'], function () {
     return gulp.src(symlinkSrcList)
-        .pipe(symlink(symlinkDestList));
+               .pipe(symlink(symlinkDestList));
 });
