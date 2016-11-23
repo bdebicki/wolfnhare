@@ -5,10 +5,17 @@ var gulp = require('gulp'),
     minify = require('gulp-minify-css'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    symlink = require('gulp-symlink'),
     jsFilesList = ['./src/js/characters/wolf.js',
                    './src/js/actions/wolf.js',
                    './src/js/components/wolfNavigation.js',
-                   './src/js/helpers/wolfMoveEvents.js'];
+                   './src/js/helpers/wolfMoveEvents.js'],
+    symlinkSrcList = ['./src/fonts',
+                      './src/images',
+                      './src/views/index.html'],
+    symlinkDestList = ['./public/fonts',
+                       './public/images',
+                       './public/index.html'];
 
 // build css file task
 gulp.task('less', function() {
@@ -55,5 +62,9 @@ gulp.task('watch:js', function() {
 gulp.task('watch', ['watch:less', 'watch:js'], function () {});
 
 // global build task
+gulp.task('build', ['less', 'js'], function () {
+    return gulp.src(symlinkSrcList)
+               .pipe(symlink(symlinkDestList));
+});
 
 // global build task minified
