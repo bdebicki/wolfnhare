@@ -6,10 +6,16 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     symlink = require('gulp-symlink'),
+    lessPackageFile = './src/less/wolfnhare.less',
+    lessFiles = './src/less/**/*.less',
+    lessFileDest = './public/css/',
     jsFilesList = ['./src/js/characters/wolf.js',
                    './src/js/actions/wolf.js',
                    './src/js/components/wolfNavigation.js',
                    './src/js/helpers/wolfMoveEvents.js'],
+    jsFiles = './src/js/**/*.js',
+    jsFileDest = './public/js/',
+    jspackageFile = 'wolfnhare.js',
     symlinkSrcList = ['./src/fonts',
                       './src/images',
                       './src/views/index.html'],
@@ -19,44 +25,44 @@ var gulp = require('gulp'),
 
 // build css file task
 gulp.task('less', function() {
-    gulp.src('./src/less/wolfnhare.less')
+    return gulp.src(lessPackageFile)
         .pipe(less())
         .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
-        .pipe(gulp.dest('./public/css/'));
+        .pipe(gulp.dest(lessFileDest));
 });
 
 // build minified css file task
 gulp.task('less:minify', function() {
-    gulp.src('./src/less/wolfnhare.less')
+    return gulp.src(lessPackageFile)
         .pipe(less())
         .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
         .pipe(minify())
-        .pipe(gulp.dest('./public/css/'));
+        .pipe(gulp.dest(lessFileDest));
 });
 
 // build js file task
 gulp.task('js', function() {
-    gulp.src(jsFilesList)
-        .pipe(concat('wolfnhare.js'))
-        .pipe(gulp.dest('./public/js/'));
+    return gulp.src(jsFilesList)
+        .pipe(concat(jspackageFile))
+        .pipe(gulp.dest(jsFileDest));
 });
 
 // build minified js file task
 gulp.task('js:minify', function() {
-    gulp.src(jsFilesList)
-        .pipe(concat('wolfnhare.js'))
+    return gulp.src(jsFilesList)
+        .pipe(concat(jspackageFile))
         .pipe(uglify())
-        .pipe(gulp.dest('./public/js/'));
+        .pipe(gulp.dest(jsFileDest));
 });
 
 // css watch task
 gulp.task('watch:less', function() {
-    gulp.watch('./src/less/**/*.less', ['less'])
+    return gulp.watch(lessFiles, ['less'])
 });
 
 // js watch task
 gulp.task('watch:js', function() {
-    gulp.watch('./src/js/**/*.js', ['js'])
+    return gulp.watch(jsFiles, ['js'])
 });
 
 // global watch task
@@ -64,12 +70,12 @@ gulp.task('watch', ['watch:less', 'watch:js'], function () {});
 
 // global build task
 gulp.task('build', ['less', 'js'], function () {
-    gulp.src(symlinkSrcList)
+    return gulp.src(symlinkSrcList)
         .pipe(symlink(symlinkDestList));
 });
 
 // global build minified task
 gulp.task('build:minify', ['less:minify', 'js:minify'], function () {
-    gulp.src(symlinkSrcList)
+    return gulp.src(symlinkSrcList)
         .pipe(symlink(symlinkDestList));
 });
