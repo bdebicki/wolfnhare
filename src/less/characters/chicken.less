@@ -1,0 +1,98 @@
+/* GAME CHARACTER: chicken */
+@chickenWidth: 20px;
+@chickenHeight: 30px;
+@chickenTopOffset: 170px;
+@chickenBottomOffset: 99px;
+@chickenHorizontalOffset: 116px;
+@eggWidth: 7px;
+@eggHeight: 10px;
+
+
+.chicken {
+	position: absolute;
+	width: 83px;
+	height: 70px;
+	text-indent: -5000px;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+		display: block;
+		width: @chickenWidth;
+		height: @chickenHeight;
+		position: absolute;
+		background: yellow;
+	}
+
+	&.topLeft {
+		top: @chickenTopOffset;
+		left: @chickenHorizontalOffset;
+
+		&:before {
+			top: 0;
+			left: 0;
+		}
+	}
+	&.bottomLeft {
+		bottom: @chickenBottomOffset;
+		left: @chickenHorizontalOffset;
+
+		&:before {
+			top: 0;
+			left: 0;
+		}
+	}
+	&.topRight {
+		top: @chickenTopOffset;
+		right: @chickenHorizontalOffset;
+
+		&:before {
+			top: 0;
+			right: 0;
+		}
+	}
+	&.bottomRight {
+		right: @chickenHorizontalOffset;
+		bottom: @chickenBottomOffset;
+
+		&:before {
+			top: 0;
+			right: 0;
+		}
+	}
+
+	.egg {
+		display: none;
+		width: @eggWidth;
+		height: @eggHeight;
+		position: absolute;
+		background: white;
+
+		[data-egg="true"]& {
+			display: block;
+		}
+
+		&.fromLeftToRight {
+			&[data-egg-step="1"] {
+				top: @chickenHeight + @eggHeight;
+				left: @chickenWidth + @eggWidth;
+			}
+			&[data-egg-step="2"] {
+				top: @chickenHeight + 1.5 * @eggHeight;
+				left: @chickenWidth + 5 * @eggWidth;
+			}
+			&[data-egg-step="3"] {
+				top: @chickenHeight + 2 * @eggHeight;
+				left: @chickenWidth + 6 * @eggWidth;
+			}
+			&[data-egg-step="4"] {
+				top: @chickenHeight + 2.5 * @eggHeight;
+				left: @chickenWidth + 7 * @eggWidth;
+			}
+			&[data-egg-step="5"] {
+				top: @chickenHeight + 3 * @eggHeight;
+				left: @chickenWidth + 8 * @eggWidth;
+			}
+		}
+	}
+}

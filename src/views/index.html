@@ -16,10 +16,22 @@
 <body id="mainContainer">
     <div id="gameBody">
         <section id="wolfArea"></section>
-        <div class="chicken topLeft">first chicken</div>
-        <div class="chicken bottomLeft">second chicken</div>
-        <div class="chicken topRight">third chicken</div>
-        <div class="chicken bottomRight">fourth chicken</div>
+        <div class="chicken topLeft" data-egg="true">
+            first chicken
+            <span class="egg fromLeftToRight"></span>
+        </div>
+        <div class="chicken bottomLeft" data-egg="false">
+            second chicken
+            <span class="egg fromLeftToRight"></span>
+        </div>
+        <div class="chicken topRight" data-egg="false">
+            third chicken
+            <span class="egg fromRightToLeft"></span>
+        </div>
+        <div class="chicken bottomRight" data-egg="false">
+            fourth chicken
+            <span class="egg fromRightToLeft"></span>
+        </div>
         <ul id="wolfNavigation">
             <li class="navigationBtn topLeft">top left</li>
             <li class="navigationBtn bottomLeft">bottom left</li>
