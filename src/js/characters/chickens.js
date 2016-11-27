@@ -1,4 +1,4 @@
-var CHICKEN = {
+var CHICKENS = {
     chickenClass: 'chicken',
     firstChicken: 'topLeft',
     secondChicken: 'bottomLeft',
