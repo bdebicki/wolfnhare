@@ -1,0 +1,39 @@
+/* GAME CHARACTER: eggs */
+@eggWidth: 7px;
+@eggHeight: 10px;
+
+
+.egg {
+	display: none;
+	width: @eggWidth;
+	height: @eggHeight;
+	position: absolute;
+	background: white;
+
+	[data-egg="true"]& {
+		display: block;
+	}
+
+	&.fromLeftToRight {
+		&[data-egg-step="1"] {
+			top: @chickenHeight + @eggHeight;
+			left: @chickenWidth + @eggWidth;
+		}
+		&[data-egg-step="2"] {
+			top: @chickenHeight + 1.5 * @eggHeight;
+			left: @chickenWidth + 5 * @eggWidth;
+		}
+		&[data-egg-step="3"] {
+			top: @chickenHeight + 2 * @eggHeight;
+			left: @chickenWidth + 6 * @eggWidth;
+		}
+		&[data-egg-step="4"] {
+			top: @chickenHeight + 2.5 * @eggHeight;
+			left: @chickenWidth + 7 * @eggWidth;
+		}
+		&[data-egg-step="5"] {
+			top: @chickenHeight + 3 * @eggHeight;
+			left: @chickenWidth + 8 * @eggWidth;
+		}
+	}
+}
