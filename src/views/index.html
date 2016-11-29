@@ -37,23 +37,9 @@
     </div>
 
     <dl class="temp-controls temp-wolfSide">
-        <dt>wolf side:</dt>
-        <dd><button onclick="WOLF.setWolfSide('onLeftSide')">left</button></dd>
-        <dd><button onclick="WOLF.setWolfSide('onRightSide')">right</button></dd>
-    </dl>
-    <dl class="temp-controls temp-basketPosition">
-        <dt>basket position:</dt>
-        <dd><button onclick="WOLF.setBasketPosition('onTopLeft')">top left</button></dd>
-        <dd><button onclick="WOLF.setBasketPosition('onBottomLeft')">bottom left</button></dd>
-        <dd><button onclick="WOLF.setBasketPosition('onTopRight')">top right</button></dd>
-        <dd><button onclick="WOLF.setBasketPosition('onBottomRight')">bottom right</button></dd>
-    </dl>
-    <dl class="temp-controls temp-wolfPose">
-        <dt>wolf pose:</dt>
-        <dd><button onclick="WOLF.setWolfPose('onLeftSide', 'onTopLeft')">top left</button></dd>
-        <dd><button onclick="WOLF.setWolfPose('onLeftSide', 'onBottomLeft')">bottom left</button></dd>
-        <dd><button onclick="WOLF.setWolfPose('onRightSide', 'onTopRight')">top right</button></dd>
-        <dd><button onclick="WOLF.setWolfPose('onRightSide', 'onBottomRight')">bottom right</button></dd>
+        <dt>render egg:</dt>
+        <dd><button onclick="EGGS.renderEgg(CHICKENS.getChicken(CHICKENS.firstChicken))">render</button></dd>
+        <dd><button onclick="EGGS.updateStep(document.getElementById('1'))">update</button></dd>
     </dl>
 
     <script type="text/javascript" src="js/wolfnhare.js"></script>
