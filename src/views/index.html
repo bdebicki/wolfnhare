@@ -37,7 +37,8 @@
     </div>
 
     <dl class="temp-controls temp-wolfSide">
-        <dt>render egg:</dt>
+        <dt>eggs:</dt>
+        <dd><button onclick="EGGS.addEgg(CHICKENS.getChicken(CHICKENS.firstChicken))">add</button></dd>
         <dd><button onclick="EGGS.renderEgg(CHICKENS.getChicken(CHICKENS.firstChicken))">render</button></dd>
         <dd><button onclick="EGGS.updateStep(document.getElementById('1'))">update</button></dd>
     </dl>
