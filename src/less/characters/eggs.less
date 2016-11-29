@@ -4,15 +4,11 @@
 
 
 .egg {
-	display: none;
+	display: block;
 	width: @eggWidth;
 	height: @eggHeight;
 	position: absolute;
 	background: white;
-
-	[data-egg="true"] & {
-		display: block;
-	}
 
 	&[data-egg-step="1"] {
 		top: @chickenHeight + @eggHeight;
