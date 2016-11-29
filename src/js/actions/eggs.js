@@ -4,6 +4,8 @@ EGGS = (function (scope) {
 
         if(currentStep < scope.maxStep) {
             egg.dataset.eggStep = currentStep + 1;
+        } else {
+            scope.removeEgg(egg);
         }
     };
 

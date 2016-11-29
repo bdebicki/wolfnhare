@@ -18,7 +18,7 @@ var EGGS = {
     },
 
     removeEgg: function(egg) {
-        document.removeChild(egg);
+        egg.parentNode.removeChild(egg);
     }
 };
 
