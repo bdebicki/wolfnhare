@@ -6,6 +6,7 @@ EGGS = (function (scope) {
             egg.dataset.eggStep = currentStep + 1;
         } else {
             scope.removeEgg(egg);
+            clearInterval(window['egg' + this.currentId]);
         }
     };
 

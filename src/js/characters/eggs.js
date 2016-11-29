@@ -23,7 +23,9 @@ var EGGS = {
     
     addEgg: function (chicken) {
         this.renderEgg(chicken);
-        setInterval(function() {EGGS.updateStep(document.getElementById('1'))}, 1000);
+        window['egg' + this.currentId] = setInterval(function() {
+                                                            EGGS.updateStep(document.getElementById('1'))
+                                                         }, 1000);
     }
 };
 
