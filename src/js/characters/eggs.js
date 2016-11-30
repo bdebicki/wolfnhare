@@ -19,13 +19,12 @@ var EGGS = {
 
     removeEgg: function(egg) {
         egg.parentNode.removeChild(egg);
+        return false;
     }, 
     
     addEgg: function (chicken) {
         this.renderEgg(chicken);
-        window['egg' + this.currentId] = setInterval(function() {
-                                                            EGGS.updateStep(document.getElementById('1'))
-                                                         }, 1000);
+        EGGS.updateStep(document.getElementById('1'));
     }
 };
 

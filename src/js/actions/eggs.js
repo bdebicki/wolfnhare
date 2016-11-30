@@ -1,13 +1,25 @@
 EGGS = (function (scope) {
     scope.updateStep = function(egg) {
-        var currentStep = parseInt(egg.dataset.eggStep);
+        var nextStep = scope.initialStep,
+            maxStep = scope.maxStep,
+            time = 1000,
+            update = function() {
+                var i = nextStep++;
 
-        if(currentStep < scope.maxStep) {
-            egg.dataset.eggStep = currentStep + 1;
-        } else {
-            scope.removeEgg(egg);
-            clearInterval(window['egg' + this.currentId]);
-        }
+                if (i > maxStep) {
+                    scope.removeEgg(egg);
+                    return false;
+                }
+                
+                setTimeout(function() {
+                    if (i <= maxStep) {
+                        egg.dataset.eggStep = nextStep;
+                    }
+                    update();
+                }, time);
+            };
+
+        return update();
     };
 
     return scope;
