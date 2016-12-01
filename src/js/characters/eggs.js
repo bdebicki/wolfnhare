@@ -1,16 +1,17 @@
 var EGGS = {
     eggClass: 'egg',
+    eggElement: 'span',
     currentId: 0,
     initialId: 1,
     initialStep: 1,
     maxStep: 5,
 
     renderEgg: function(chicken) {
-        var egg = document.createElement('span');
+        var egg = document.createElement(this.eggElement);
 
         egg.classList.add(this.eggClass);
         egg.setAttribute('data-egg-step', this.initialStep);
-        egg.setAttribute('id', this.initialId);
+        egg.setAttribute('data-egg-id', this.initialId);
         chicken.appendChild(egg);
 
         this.currentId = this.initialId;
@@ -24,7 +25,7 @@ var EGGS = {
     
     addEgg: function (chicken) {
         this.renderEgg(chicken);
-        EGGS.updateStep(document.getElementById('1'));
+        this.updateStep(document.querySelector('span[data-egg-id="' + this.currentId + '"]'));
     }
 };
 
