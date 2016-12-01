@@ -23,7 +23,10 @@ var EGGS = {
         return false;
     }, 
     
-    addEgg: function (chicken) {
+    addEgg: function () {
+        var chickenPosition = CHICKENS.list[Math.floor(Math.random() * CHICKENS.list.length)],
+            chicken = document.querySelector('.chicken.' + chickenPosition);
+
         this.renderEgg(chicken);
         this.updateStep(document.querySelector('span[data-egg-id="' + this.currentId + '"]'));
     }
