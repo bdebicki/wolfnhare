@@ -35,5 +35,3 @@ var WOLF = {
         document.getElementById(this.wolfAreaId).appendChild(this.wolfBody.renderWolf());
     }
 };
-
-WOLF.render();
