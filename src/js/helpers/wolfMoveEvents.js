@@ -8,27 +8,25 @@ WOLF = (function (scope) {
         };
 
     window.addEventListener('keydown', function(event) {
-        if (event.defaultPrevented) {
+        if (event.defaultPrevented || WOLFNAVIGATION.actionsAvailable !== true) {
             return null;
         }
 
-        if (WOLFNAVIGATION.actionsAvailable === true) {
-            switch (event.key) {
-                case leftTopKey:
-                    WOLF.setWolfPose('onLeftSide', 'onTopLeft');
-                    break;
-                case leftBottomKey:
-                    WOLF.setWolfPose('onLeftSide', 'onBottomLeft');
-                    break;
-                case rightTopKey:
-                    WOLF.setWolfPose('onRightSide', 'onTopRight');
-                    break;
-                case rightBottomKey:
-                    WOLF.setWolfPose('onRightSide', 'onBottomRight');
-                    break;
-                default:
-                    return null;
-            }
+        switch (event.key) {
+            case leftTopKey:
+                WOLF.setWolfPose('onLeftSide', 'onTopLeft');
+                break;
+            case leftBottomKey:
+                WOLF.setWolfPose('onLeftSide', 'onBottomLeft');
+                break;
+            case rightTopKey:
+                WOLF.setWolfPose('onRightSide', 'onTopRight');
+                break;
+            case rightBottomKey:
+                WOLF.setWolfPose('onRightSide', 'onBottomRight');
+                break;
+            default:
+                return null;
         }
 
         event.preventDefault();
