@@ -7,7 +7,7 @@ var WOLFNAVIGATION = {
     bottomRightBtn: 'bottomRight',
     actionsAvailable: false,
 
-    navBtn: function() {
+    getNavBtn: function() {
         return document.getElementById(this.navId).getElementsByClassName(this.navBtnClass);
     }
 };
