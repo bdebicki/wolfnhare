@@ -6,15 +6,13 @@ var GAME = {
     getActionBtn: function(btnType) {
         return document.querySelector('button[data-game="' + btnType + '"]')
     },
-    scoreContainer: function() {
+    getScoreContainer: function() {
         return document.querySelector('.score');
     },
     updateScore: function(score) {
-        this.scoreContainer().innerHTML = score;
+        this.getScoreContainer().innerHTML = score;
     },
     renderDefaultScore: function() {
         this.updateScore(this.startScore);
     }
 };
-
-GAME.renderDefaultScore();
