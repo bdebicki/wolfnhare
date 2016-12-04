@@ -11,5 +11,12 @@ var CHICKENS = {
                 return chicken[i];
             }
         }
+    },
+    
+    drawChicken: function () {
+        var chickenPosition = CHICKENS.list[Math.floor(Math.random() * CHICKENS.list.length)],
+            chicken = document.querySelector('.chicken.' + chickenPosition);
+
+        return chicken;
     }
 };
