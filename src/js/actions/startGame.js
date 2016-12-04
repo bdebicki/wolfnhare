@@ -1,5 +1,6 @@
 GAME = (function (scope) {
     scope.startGame = function() {
+        WOLFNAVIGATION.actionsAvailable = true;
         EGGS.addEgg();
 
         scope.eggsInterval = setInterval(function() {
