@@ -2,7 +2,7 @@ EGGS = (function (scope) {
     scope.updateStep = function(egg) {
         var nextStep = scope.initialStep,
             maxStep = scope.maxStep,
-            time = 1000,
+            time = scope.stepTime,
             update = function() {
                 var i = nextStep++;
 
@@ -10,7 +10,7 @@ EGGS = (function (scope) {
                     scope.removeEgg(egg);
                     return false;
                 }
-                
+
                 setTimeout(function() {
                     if (i <= maxStep) {
                         egg.dataset.eggStep = nextStep;
