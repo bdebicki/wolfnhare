@@ -19,8 +19,12 @@ var GAME = {
     },
     checkFall: function() {
         var chicken = CHICKENS.currentChicken.toLowerCase(),
-            basket = WOLF.basket.currentPosition.toLowerCase().split('on')[1];
+            basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
-        console.log('chicken:' + chicken + ', basket: ' + basket);
+        if (chicken === basket) {
+            console.log('point');
+        } else {
+            console.log('fail');
+        }
     }
 };
