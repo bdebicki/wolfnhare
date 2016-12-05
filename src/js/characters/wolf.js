@@ -7,6 +7,7 @@ var WOLF = {
         onTopRight: 'onTopRight',
         onBottomLeft: 'onBottomLeft',
         onBottomRight: 'onBottomRight',
+        currentPosition: null,
         defaultPosition: function() {return this.onBottomLeft},
 
         renderBasket: function() {

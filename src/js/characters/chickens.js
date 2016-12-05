@@ -4,6 +4,7 @@ var CHICKENS = {
     secondChicken: 'bottomLeft',
     thirdChicken: 'topRight',
     fourthChicken: 'bottomRight',
+    currentChicken: null,
 
     getChicken: function(position) {
         for (var i = 0, chicken = document.getElementsByClassName(this.chickenClass); i<chicken.length; i++) {
@@ -16,6 +17,8 @@ var CHICKENS = {
     drawChicken: function () {
         var chickenPosition = CHICKENS.list[Math.floor(Math.random() * CHICKENS.list.length)],
             chicken = document.querySelector('.chicken.' + chickenPosition);
+
+        this.currentChicken = chickenPosition;
 
         return chicken;
     }
