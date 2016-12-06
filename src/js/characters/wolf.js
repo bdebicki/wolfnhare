@@ -7,6 +7,7 @@ var WOLF = {
         onTopRight: 'onTopRight',
         onBottomLeft: 'onBottomLeft',
         onBottomRight: 'onBottomRight',
+        currentPosition: null,
         defaultPosition: function() {return this.onBottomLeft},
 
         renderBasket: function() {
@@ -29,6 +30,14 @@ var WOLF = {
 
             return wolfBodyElement;
         }
+    },
+
+    updateCurrentBasketPosition: function(current) {
+        this.basket.currentPosition = current.toLowerCase().split('on')[1];
+    },
+
+    getCurrentBasketPosition: function() {
+        return this.basket.currentPosition;
     },
 
     render: function () {
