@@ -1,4 +1,5 @@
 var GAME = {
+    currentScore: null,
     startScore: 0,
     roundTimeDelay: 30,
 
@@ -12,17 +13,20 @@ var GAME = {
         return document.querySelector('.score');
     },
     updateScore: function(score) {
-        this.getScoreContainer().innerHTML = score;
+        var newScore = score + 1;
+
+        this.currentScore = newScore;
+        this.getScoreContainer().innerHTML = newScore;
     },
     renderDefaultScore: function() {
-        this.updateScore(this.startScore);
+        this.getScoreContainer().innerHTML = this.startScore;
     },
     checkFall: function() {
         var chicken = CHICKENS.currentChicken.toLowerCase(),
             basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
         if (chicken === basket) {
-            console.log('point');
+            this.updateScore(this.currentScore);
         } else {
             console.log('fail');
         }
