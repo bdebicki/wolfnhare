@@ -13,13 +13,21 @@ var CHICKENS = {
             }
         }
     },
-    
+
+    updateCurrentChicken: function (current) {
+        this.currentChicken = current.toLowerCase();
+    },
+
     drawChicken: function () {
         var chickenPosition = CHICKENS.list[Math.floor(Math.random() * CHICKENS.list.length)],
             chicken = document.querySelector('.chicken.' + chickenPosition);
 
-        this.currentChicken = chickenPosition;
+        this.updateCurrentChicken(chickenPosition);
 
         return chicken;
+    },
+
+    getCurrentChicken: function () {
+        return this.currentChicken;
     }
 };

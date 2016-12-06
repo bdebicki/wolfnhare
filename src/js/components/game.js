@@ -22,10 +22,9 @@ var GAME = {
         this.getScoreContainer().innerHTML = this.startScore;
     },
     checkFall: function() {
-        var chicken = CHICKENS.currentChicken.toLowerCase(),
-            basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
+        var basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
-        if (chicken === basket) {
+        if (CHICKENS.getCurrentChicken() === basket) {
             this.updateScore(this.currentScore);
         } else {
             console.log('fail');
