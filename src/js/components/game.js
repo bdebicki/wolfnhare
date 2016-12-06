@@ -24,7 +24,7 @@ var GAME = {
     checkFall: function() {
         var basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
-        if (CHICKENS.getCurrentChicken() === basket) {
+        if (CHICKENS.getCurrentChicken() === WOLF.getCurrentBasketPosition()) {
             this.updateScore(this.currentScore);
         } else {
             console.log('fail');

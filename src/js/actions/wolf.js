@@ -12,7 +12,7 @@ WOLF = (function (scope) {
     };
 
     scope.setBasketPosition = function (position) {
-        WOLF.basket.currentPosition = position;
+        scope.updateCurrentBasketPosition(position);
 
         var basketElement = document.getElementsByClassName(scope.basket.basketClass)[0],
             basketPosition = this.basket[position];

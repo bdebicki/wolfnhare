@@ -32,6 +32,14 @@ var WOLF = {
         }
     },
 
+    updateCurrentBasketPosition: function(current) {
+        this.basket.currentPosition = current.toLowerCase().split('on')[1];
+    },
+
+    getCurrentBasketPosition: function() {
+        return this.basket.currentPosition;
+    },
+
     render: function () {
         document.getElementById(this.wolfAreaId).appendChild(this.wolfBody.renderWolf());
     }
