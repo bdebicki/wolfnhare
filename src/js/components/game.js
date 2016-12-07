@@ -13,7 +13,7 @@ var GAME = {
         if (CHICKENS.getCurrentChicken() === WOLF.getCurrentBasketPosition()) {
             this.updateScore(this.currentScore);
         } else {
-            console.log('fail');
+            WOLF.updateLives();
         }
     }
 };
