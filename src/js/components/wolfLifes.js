@@ -4,11 +4,18 @@ WOLF = (function (scope) {
         lifesLimit = lifes.length;
 
     scope.updateLives = function () {
-        if(usedLifes !== lifesLimit) {
-            for (var i = 0, l = lifesLimit; i < l; i++) {
-                if(!lifes[i].classList.contains('used')) {
-                    lifes[i].classList.add('used');
+        usedLifes++;
+
+        for (var i = 0, l = lifesLimit; i < l; i++) {
+            if (!lifes[i].classList.contains('used')) {
+                lifes[i].classList.add('used');
+
+                if (usedLifes !== lifesLimit) {
                     return false;
+                } else {
+                    setTimeout(function () {
+                        GAME.gameOver();
+                    }, 10);
                 }
             }
         }

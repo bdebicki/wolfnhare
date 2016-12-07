@@ -15,5 +15,9 @@ var GAME = {
         } else {
             WOLF.updateLives();
         }
+    },
+    gameOver: function () {
+        alert('game over!');
+        clearInterval(GAME.eggsInterval);
     }
 };

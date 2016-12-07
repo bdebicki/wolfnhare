@@ -4,7 +4,8 @@ GAME = (function (scope) {
         EGGS.addEgg();
 
         scope.eggsInterval = setInterval(function() {
-            EGGS.addEgg()}, this.roundTime()
+                EGGS.addEgg()
+            }, this.roundTime()
         );
 
         return scope.eggsInterval;
