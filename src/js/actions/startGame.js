@@ -4,6 +4,7 @@ GAME = (function (scope) {
         EGGS.addEgg();
 
         scope.eggsInterval = setInterval(function() {
+                GAME.switchLvl();
                 EGGS.addEgg()
             }, this.roundTime()
         );
