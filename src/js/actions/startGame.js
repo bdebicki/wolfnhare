@@ -8,7 +8,6 @@ GAME = (function (scope) {
 
     scope.runRound = function () {
         scope.eggsInterval = setInterval(function () {
-                console.log('interval');
                 GAME.checkLvl();
                 EGGS.addEgg()
             }, GAME.getRoundTime()
