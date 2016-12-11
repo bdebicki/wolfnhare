@@ -11,7 +11,8 @@ var GAME = {
     checkFall: function() {
         var basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
-        if (CHICKENS.getCurrentChicken() === WOLF.getCurrentBasketPosition()) {
+        if (CHICKENS.getCurrentChicken()[0] === WOLF.getCurrentBasketPosition()) {
+            CHICKENS.removeCurrentChicken();
             this.updateScore(this.currentScore);
         } else {
             WOLF.updateLives();
