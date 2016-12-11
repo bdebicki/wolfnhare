@@ -1,5 +1,5 @@
 GAME = (function (scope) {
-    scope.getActionBtn('start').addEventListener('click', function () {
+    scope.getActionBtn('game-a').addEventListener('click', function () {
         scope.startGame();
     });
 
