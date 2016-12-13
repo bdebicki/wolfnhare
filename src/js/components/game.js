@@ -12,11 +12,11 @@ var GAME = {
         var basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
         if (CHICKENS.getCurrentChicken()[0] === WOLF.getCurrentBasketPosition()) {
-            CHICKENS.removeCurrentChicken();
             this.updateScore(this.currentScore);
         } else {
             WOLF.updateLives();
         }
+        CHICKENS.removeCurrentChicken();
     },
     gameOver: function () {
         alert('game over!');
