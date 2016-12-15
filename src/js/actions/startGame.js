@@ -1,7 +1,7 @@
 GAME = (function (scope) {
     scope.startGame = function() {
         WOLFNAVIGATION.actionsAvailable = true;
-        HARE.toggleHare(false);
+        HARE.startTogglingHare();
         EGGS.addEgg();
         scope.setRoundTime(1);
         scope.runRound();
