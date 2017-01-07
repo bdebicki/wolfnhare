@@ -1,40 +1,29 @@
 WOLF = (function (scope) {
-    var lifesLimit = document.querySelectorAll('.lifes li').length;
-
     scope.usedLifes = 0;
 
-    scope.lifeType = function () {
-        return HARE.isHareVisible ? 0 : 1;
-    };
-
-    scope.checkGameOver = function () {
-        if (this.usedLifes === lifesLimit) {
-            setTimeout(function () {
-                GAME.gameOver();
-            }, 10);
-        }
-    };
+    var lifes = document.querySelectorAll('.lifes li'),
+        lifesLimit = lifes.length;
 
     scope.updateLives = function () {
-        var lifeUnused = document.querySelector('.lifes li:not(.used)'),
-            lifeUsedHalf = document.querySelector('.lifes li.half');
+        this.usedLifes = this.usedLifes + 1;
 
-        this.usedLifes = this.usedLifes + this.lifeType();
-
-        if (this.usedLifes !== GAME.bonusCriteria.lifes) {
+        if (this.usedLifes === GAME.bonusCriteria.lifes + 1) {
             GAME.isBonusAvailable(false);
         }
 
-        if(lifeUsedHalf) {
-            lifeUsedHalf.classList.remove('half');
-        } else if(lifeUnused) {
-            if (HARE.isHareVisible) {
-                lifeUnused.classList.add('used', 'half');
-            } else if (!HARE.isHareVisible) {
-                lifeUnused.classList.add('used');
+        for (var i = 0, l = lifesLimit; i < l; i++) {
+            if (!lifes[i].classList.contains('used')) {
+                lifes[i].classList.add('used');
+
+                if (this.usedLifes !== lifesLimit) {
+                    return false;
+                } else {
+                    setTimeout(function () {
+                        GAME.gameOver();
+                    }, 10);
+                }
             }
         }
-        scope.checkGameOver();
     };
 
     return scope;
