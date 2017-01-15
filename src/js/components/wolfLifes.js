@@ -3,7 +3,6 @@ WOLF = (function (scope) {
     scope.lifesLimit = 3;
 
     rendersimpleLife = function (counter) {
-        console.log('simple life');
         var life = document.createElement('li');
         life.innerHTML = counter;
 
@@ -11,11 +10,9 @@ WOLF = (function (scope) {
     };
 
     scope.renderLifes = function () {
-        console.log('render lifes');
         var fragment = document.createDocumentFragment();
 
         var lifesContainer = document.createElement('ul');
-        lifesContainer.classList.add('lifes');
 
         for (var i=1; i <= scope.lifesLimit; i++) {
             fragment.appendChild(rendersimpleLife(i));
