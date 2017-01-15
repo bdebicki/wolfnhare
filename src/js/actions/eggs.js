@@ -7,7 +7,9 @@ EGGS = (function (scope) {
                 var i = nextStep++;
 
                 if (i > maxStep) {
-                    GAME.checkFall();
+                    if(!GAME.isGameOver) {
+                       GAME.checkFall();
+                    }
                     scope.removeEgg(egg);
                     return false;
                 }

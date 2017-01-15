@@ -1,6 +1,7 @@
 var GAME = {
     roundTime: null,
     roundTimeDelay: 30,
+    isGameOver: false,
 
     getActionBtn: function(btnType) {
         return document.querySelector('button[data-game="' + btnType + '"]')
@@ -14,11 +15,12 @@ var GAME = {
         if (CHICKENS.getCurrentChicken()[0] === WOLF.getCurrentBasketPosition()) {
             this.updateScore(this.currentScore);
         } else {
-            WOLF.updateLives();
+            WOLF.updateLifes();
         }
         CHICKENS.removeCurrentChicken();
     },
     gameOver: function () {
+        this.isGameOver = true;
         alert('game over!');
         clearInterval(GAME.eggsInterval);
     }
