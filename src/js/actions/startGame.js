@@ -1,6 +1,6 @@
 GAME = (function (scope) {
     scope.startGame = function() {
-        this.resetLvl();
+        this.restartGame();
         HARE.startTogglingHare();
         EGGS.addEgg();
         this.runRound();
