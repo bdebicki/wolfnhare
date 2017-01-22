@@ -17,6 +17,10 @@ GAME = (function (scope) {
     scope.setRoundTime = function (lvl) {
         scope.roundTime = (EGGS.stepTime * EGGS.maxStep) / GAME.lvls[lvl].eggsAtOnce + this.roundTimeDelay;
     };
+    scope.resetLvl = function () {
+        this.currentLvl = 1;
+        this.setRoundTime(this.currentLvl);
+    };
 
     return scope;
 })(GAME);

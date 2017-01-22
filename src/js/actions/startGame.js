@@ -3,7 +3,6 @@ GAME = (function (scope) {
         this.resetLvl();
         HARE.startTogglingHare();
         EGGS.addEgg();
-        scope.setRoundTime(1);
         this.runRound();
     };
 
