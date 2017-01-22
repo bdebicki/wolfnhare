@@ -10,7 +10,9 @@ GAME = (function (scope) {
     scope.runRound = function () {
         scope.eggsInterval = setInterval(function () {
                 GAME.checkLvl();
-                EGGS.addEgg()
+                if(!GAME.isGameOver) {
+                    EGGS.addEgg()
+                }
             }, GAME.getRoundTime()
         );
 

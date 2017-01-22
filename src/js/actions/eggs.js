@@ -15,10 +15,12 @@ EGGS = (function (scope) {
                 }
 
                 setTimeout(function() {
-                    if (i <= maxStep) {
-                        egg.dataset.eggStep = nextStep;
+                    if(!GAME.isGameOver) {
+                        if (i <= maxStep) {
+                          egg.dataset.eggStep = nextStep;
+                        }
+                        update();
                     }
-                    update();
                 }, time);
             };
 

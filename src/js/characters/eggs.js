@@ -29,5 +29,3 @@ var EGGS = {
         this.updateStep(document.querySelector('span[data-egg-id="' + this.currentId + '"]'));
     }
 };
-
-
