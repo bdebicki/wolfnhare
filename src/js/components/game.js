@@ -20,8 +20,8 @@ var GAME = {
         CHICKENS.removeCurrentChicken();
     },
     gameOver: function () {
+        console.log('game over');
         this.isGameOver = true;
-        alert('game over!');
         clearInterval(GAME.eggsInterval);
     }
 };
