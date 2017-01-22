@@ -27,7 +27,7 @@ var GAME = {
         this.isGameOver = false;
         WOLFNAVIGATION.actionsAvailable = true;
         this.resetLvl();
-        // reset lifes
+        WOLF.resetLifes();
         // reset score
         // reset hare
         // reset eggs

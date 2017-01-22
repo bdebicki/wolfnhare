@@ -53,5 +53,9 @@ WOLF = (function (scope) {
         }
     };
 
+    scope.resetLifes = function () {
+        this.usedLifes = 0;
+    };
+
     return scope;
 })(WOLF);
