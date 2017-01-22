@@ -29,7 +29,7 @@ var GAME = {
         this.resetLvl();
         WOLF.resetLifes();
         this.resetScore();
-        // reset bonus
+        this.isBonusAvailable(false);
         // reset hare
         // reset eggs
         // reset wolf position
