@@ -22,25 +22,33 @@ var HARE = {
     },
 
     hideHare: function() {
-        this.setHareVisible(false);
+        if(!GAME.isGameOver) {
+            this.setHareVisible(false);
+        }
     },
 
     showHare: function() {
-        this.setHareVisible(true);
+        if(!GAME.isGameOver) {
+            this.setHareVisible(true);
+        }
     },
 
     hideHareWithDelay: function (hideDelay, showDelay) {
-        setTimeout(function() {
-            HARE.hideHare();
-            HARE.showHareWithDelay(hideDelay, showDelay);
-        }, hideDelay);
+        if(!GAME.isGameOver) {
+            setTimeout(function () {
+                HARE.hideHare();
+                HARE.showHareWithDelay(hideDelay, showDelay);
+            }, hideDelay);
+        }
     },
 
     showHareWithDelay: function (hideDelay, showDelay) {
-        setTimeout(function() {
-            HARE.showHare();
-            HARE.hideHareWithDelay(hideDelay, showDelay);
-        }, showDelay);
+        if(!GAME.isGameOver) {
+            setTimeout(function () {
+                HARE.showHare();
+                HARE.hideHareWithDelay(hideDelay, showDelay);
+            }, showDelay);
+        }
     },
 
     startTogglingHare: function () {
