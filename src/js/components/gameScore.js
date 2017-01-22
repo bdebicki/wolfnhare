@@ -27,6 +27,11 @@ GAME = (function (scope) {
     scope.isBonusAvailable = function(boolen) {
         scope.doublePoints = boolen;
     };
+    scope.resetScore = function () {
+        this.startScore = 0;
+        this.currentScore = null;
+        this.renderDefaultScore();
+    };
 
     return scope;
 })(GAME);

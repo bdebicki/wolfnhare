@@ -28,7 +28,8 @@ var GAME = {
         WOLFNAVIGATION.actionsAvailable = true;
         this.resetLvl();
         WOLF.resetLifes();
-        // reset score
+        this.resetScore();
+        // reset bonus
         // reset hare
         // reset eggs
         // reset wolf position
