@@ -1,10 +1,10 @@
 GAME = (function (scope) {
     scope.startGame = function() {
-        WOLFNAVIGATION.actionsAvailable = true;
+        this.resetLvl();
         HARE.startTogglingHare();
         EGGS.addEgg();
         scope.setRoundTime(1);
-        scope.runRound();
+        this.runRound();
     };
 
     scope.runRound = function () {

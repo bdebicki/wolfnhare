@@ -22,5 +22,16 @@ var GAME = {
     gameOver: function () {
         this.isGameOver = true;
         clearInterval(GAME.eggsInterval);
+    },
+    restartGame: function () {
+        this.isGameOver = false;
+        WOLFNAVIGATION.actionsAvailable = true;
+
+        // reset level
+        // reset lifes
+        // reset score
+        // reset hare
+        // reset eggs
+        // reset wolf position
     }
 };
