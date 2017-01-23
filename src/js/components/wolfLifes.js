@@ -29,7 +29,7 @@ WOLF = (function (scope) {
 
     scope.updateLifes = function () {
         var lifeUnused = document.querySelector('.lifes li:not(.used)'),
-            lifeUsedHalf = document.querySelector('.lifes li.half');
+          lifeUsedHalf = document.querySelector('.lifes li.half');
 
         if (this.usedLifes !== GAME.bonusCriteria.lifes) {
             GAME.isBonusAvailable(false);
@@ -41,11 +41,9 @@ WOLF = (function (scope) {
         } else if (lifeUnused && HARE.isHareVisible) {
             updateUsedLifes(0.5);
             lifeUnused.classList.add('used', 'half');
-        } else if (lifeUnused && !HARE.isHareVisible) {
+        } else {
             updateUsedLifes(1);
             lifeUnused.classList.add('used');
-        } else {
-            return false;
         }
 
         if (this.usedLifes === this.lifesLimit) {
