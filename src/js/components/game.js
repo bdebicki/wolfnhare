@@ -1,4 +1,5 @@
 var GAME = {
+    gameId: 'gameBody',
     roundTime: null,
     roundTimeDelay: 30,
     isGameOver: false,
@@ -27,11 +28,11 @@ var GAME = {
         this.isGameOver = false;
         WOLFNAVIGATION.actionsAvailable = true;
         this.resetLvl();
-        WOLF.resetLifes();
+        WOLF.resetLifes(); // no interface reset
         this.resetScore();
         this.isBonusAvailable(false);
-        this.resetWolfPosition();
+        WOLF.resetWolfPosition();
         HARE.setHareVisible(true);
-        // reset eggs
+        EGGS.resetEgg();
     }
 };

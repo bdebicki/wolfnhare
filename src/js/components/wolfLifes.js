@@ -20,7 +20,7 @@ WOLF = (function (scope) {
         }
 
         lifesContainer.appendChild(fragment);
-        document.getElementById('gameBody').appendChild(lifesContainer);
+        document.getElementById(GAME.gameId).appendChild(lifesContainer);
     };
 
     updateUsedLifes = function (value) {

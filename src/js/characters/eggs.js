@@ -27,5 +27,14 @@ var EGGS = {
     addEgg: function () {
         this.renderEgg(CHICKENS.drawChicken());
         this.updateStep(document.querySelector('span[data-egg-id="' + this.currentId + '"]'));
+    },
+    
+    resetEgg: function () {
+        this.currentId = 0;
+        this.initialId = 1;
+
+        for (var i = 0, eggs = document.querySelectorAll(this.eggClass).length; i < eggs; i++) {
+            document.querySelector(this.eggClass).parentNode.removeChild(document.querySelector(this.eggClass));
+        }
     }
 };
