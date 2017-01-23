@@ -31,7 +31,7 @@ var GAME = {
         this.resetScore();
         this.isBonusAvailable(false);
         this.resetWolfPosition();
-        // reset hare
+        HARE.setHareVisible(true);
         // reset eggs
     }
 };
