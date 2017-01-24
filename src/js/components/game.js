@@ -34,5 +34,6 @@ var GAME = {
         WOLF.resetWolfPosition();
         HARE.setHareVisible(true);
         EGGS.resetEgg();
+        CHICKENS.resetChickens();
     }
 };
