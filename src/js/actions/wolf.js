@@ -1,10 +1,14 @@
 WOLF = (function (scope) {
+    scope.resetWolfSide = function () {
+        document.getElementById(scope.wolfBody.wolfId).classList.remove(this.wolfBody.onLeftSide, this.wolfBody.onRightSide);
+    };
+
     scope.setWolfSide = function (side) {
         var wolfElement = document.getElementById(scope.wolfBody.wolfId),
             wolfSide = this.wolfBody[side];
 
         if (!wolfElement.classList.contains(wolfSide)) {
-            wolfElement.classList.remove(this.wolfBody.onLeftSide, this.wolfBody.onRightSide);
+            this.resetWolfSide();
             wolfElement.classList.add(wolfSide);
         } else {
             return null;

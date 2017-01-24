@@ -22,7 +22,6 @@ var WOLF = {
         wolfId: 'wolf',
         onLeftSide: 'onLeft',
         onRightSide: 'onRight',
-        defaultSide: '',
 
         renderWolf: function() {
             wolfBodyElement = document.createElement('div');
@@ -42,7 +41,8 @@ var WOLF = {
     },
 
     resetWolfPosition: function () {
-        this.setWolfPose(this.wolfBody.defaultSide, this.basket.defaultPosition());
+        this.resetWolfSide();
+        this.setBasketPosition(this.basket.defaultPosition());
     },
 
     render: function () {
