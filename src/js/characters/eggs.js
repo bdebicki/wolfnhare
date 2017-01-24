@@ -33,8 +33,8 @@ var EGGS = {
         this.currentId = 0;
         this.initialId = 1;
 
-        for (var i = 0, eggs = document.querySelectorAll(this.eggClass).length; i < eggs; i++) {
-            document.querySelector(this.eggClass).parentNode.removeChild(document.querySelector(this.eggClass));
+        for (var i = 0, eggs = document.querySelectorAll('.egg').length; i < eggs; i++) {
+            document.querySelector('.egg').parentNode.removeChild(document.querySelector('.egg'));
         }
     }
 };
