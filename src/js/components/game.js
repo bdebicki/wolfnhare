@@ -28,7 +28,7 @@ var GAME = {
         this.isGameOver = false;
         WOLFNAVIGATION.actionsAvailable = true;
         this.resetLvl();
-        WOLF.resetLifes(); // no interface reset
+        WOLF.resetLifes();
         this.resetScore();
         this.isBonusAvailable(false);
         WOLF.resetWolfPosition();

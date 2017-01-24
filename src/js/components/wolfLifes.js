@@ -29,7 +29,7 @@ WOLF = (function (scope) {
 
     scope.updateLifes = function () {
         var lifeUnused = document.querySelector('.lifes li:not(.used)'),
-          lifeUsedHalf = document.querySelector('.lifes li.half');
+            lifeUsedHalf = document.querySelector('.lifes li.half');
 
         if (this.usedLifes !== GAME.bonusCriteria.lifes) {
             GAME.isBonusAvailable(false);
@@ -54,7 +54,12 @@ WOLF = (function (scope) {
     };
 
     scope.resetLifes = function () {
+        var lifes = document.querySelectorAll('.lifes li');
         this.usedLifes = 0;
+
+        for (var i = 0, l = lifes.length; i < l; i++) {
+            lifes[i].classList.remove('used');
+        }
     };
 
     return scope;
