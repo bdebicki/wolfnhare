@@ -18,5 +18,15 @@ GAME = (function (scope) {
         return scope.eggsInterval;
     };
 
+    scope.startGameA = function () {
+        this.setGameTypeStepTime('A');
+        this.startGame();
+    };
+
+    scope.startGameB = function () {
+        this.setGameTypeStepTime('B');
+        this.startGame();
+    };
+
     return scope;
 })(GAME);

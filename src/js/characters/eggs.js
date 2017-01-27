@@ -5,7 +5,10 @@ var EGGS = {
     initialId: 1,
     initialStep: 1,
     maxStep: 5,
-    stepTime: 1000,
+    stepTime: {
+        gameA: 800,
+        gameB: 600
+    },
 
     renderEgg: function(chicken) {
         var egg = document.createElement(this.eggElement);

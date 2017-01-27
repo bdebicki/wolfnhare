@@ -2,7 +2,7 @@ EGGS = (function (scope) {
     scope.updateStep = function(egg) {
         var nextStep = scope.initialStep,
             maxStep = scope.maxStep,
-            time = scope.stepTime,
+            time = GAME.selectetGameStepTime,
             update = function() {
                 var i = nextStep++;
 
