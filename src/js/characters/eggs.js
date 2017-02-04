@@ -16,6 +16,7 @@ var EGGS = {
         egg.classList.add(this.eggClass);
         egg.setAttribute('data-egg-step', this.initialStep);
         egg.setAttribute('data-egg-id', this.initialId);
+        egg.setAttribute('data-in-game', GAME.gameId);
         chicken.appendChild(egg);
 
         this.currentId = this.initialId;

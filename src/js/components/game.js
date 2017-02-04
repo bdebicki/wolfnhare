@@ -1,7 +1,8 @@
 var GAME = {
-    gameId: 'gameBody',
+    gameBodyId: 'gameBody',
     roundTime: null,
     roundTimeDelay: 30,
+    gameId: 0,
     isGameOver: false,
 
     getActionBtn: function(btnType) {
@@ -25,7 +26,12 @@ var GAME = {
         clearInterval(GAME.eggsInterval);
     },
     restartGame: function () {
-        this.isGameOver = false;
+        if(this.isGameOver) {
+            this.isGameOver = false;
+        }
+        if(!this.isGameOver) {
+            clearInterval(this.eggsInterval);
+        }
         WOLFNAVIGATION.actionsAvailable = true;
         this.resetLvl();
         WOLF.resetLifes();

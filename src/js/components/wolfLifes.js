@@ -20,7 +20,7 @@ WOLF = (function (scope) {
         }
 
         lifesContainer.appendChild(fragment);
-        document.getElementById(GAME.gameId).appendChild(lifesContainer);
+        document.getElementById(GAME.gameBodyId).appendChild(lifesContainer);
     };
 
     updateUsedLifes = function (value) {
@@ -41,7 +41,7 @@ WOLF = (function (scope) {
         } else if (lifeUnused && HARE.isHareVisible) {
             updateUsedLifes(0.5);
             lifeUnused.classList.add('used', 'half');
-        } else {
+        } else if (lifeUnused && !HARE.isHareVisible) {
             updateUsedLifes(1);
             lifeUnused.classList.add('used');
         }

@@ -1,5 +1,6 @@
 GAME = (function (scope) {
     scope.startGame = function() {
+        this.gameId = this.gameId + 1;
         this.restartGame();
         HARE.startTogglingHare();
         EGGS.addEgg();

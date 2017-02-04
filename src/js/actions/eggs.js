@@ -7,17 +7,19 @@ EGGS = (function (scope) {
                 var i = nextStep++;
 
                 if (i > maxStep) {
-                    if(!GAME.isGameOver) {
-                       GAME.checkFall();
+                    if (GAME.gameId === parseInt(egg.dataset.inGame)) {
+                        if (!GAME.isGameOver) {
+                          GAME.checkFall();
+                        }
+                        scope.removeEgg(egg);
                     }
-                    scope.removeEgg(egg);
                     return false;
                 }
 
                 setTimeout(function() {
                     if(!GAME.isGameOver) {
                         if (i <= maxStep) {
-                          egg.dataset.eggStep = nextStep;
+                            egg.dataset.eggStep = nextStep;
                         }
                         update();
                     }
