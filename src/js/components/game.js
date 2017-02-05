@@ -15,7 +15,7 @@ var GAME = {
         var basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
         if (CHICKENS.getCurrentChicken()[0] === WOLF.getCurrentBasketPosition()) {
-            this.updateScore(this.currentScore, this.temporaryScore);
+            this.updateScore(this.currentScore, this.cycleScore);
         } else {
             WOLF.updateLifes();
         }

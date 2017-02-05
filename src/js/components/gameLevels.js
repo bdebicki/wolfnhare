@@ -5,14 +5,14 @@ GAME = (function (scope) {
     scope.checkLvl = function () {
         var nextLvl = scope.currentLvl + 1;
 
-        if (scope.temporaryScore === scope.lvls[nextLvl].startPoints) {
+        if (scope.cycleScore === scope.lvls[nextLvl].startPoints) {
             scope.switchLvl();
             scope.setRoundTime(nextLvl);
             clearInterval(GAME.eggsInterval);
             scope.runRound();
-        } else if (scope.temporaryScore === scope.pointsLimit) {
+        } else if (scope.cycleScore === scope.pointsLimit) {
             scope.resetLvl();
-            scope.temporaryScore = 0;
+            scope.cycleScore = 0;
             clearInterval(GAME.eggsInterval);
             scope.runRound();
         }
