@@ -20,12 +20,21 @@ GAME = (function (scope) {
     };
 
     scope.startGameA = function () {
+        this.isDemoGame = false;
         this.setGameTypeStepTime('A');
         this.startGame();
     };
 
     scope.startGameB = function () {
+        this.isDemoGame = false;
         this.setGameTypeStepTime('B');
+        this.startGame();
+    };
+
+    scope.startDemo = function () {
+        console.log('demo');
+        scope.isDemoGame = true;
+        this.setGameTypeStepTime('A');
         this.startGame();
     };
 

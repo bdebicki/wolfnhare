@@ -4,6 +4,7 @@ var GAME = {
     roundTimeDelay: 30,
     gameId: 0,
     isGameOver: false,
+    isDemoGame: true,
 
     getActionBtn: function(btnType) {
         return document.querySelector('button[data-game="' + btnType + '"]')
@@ -23,6 +24,7 @@ var GAME = {
     },
     gameOver: function () {
         this.isGameOver = true;
+        WOLFNAVIGATION.actionsAvailable = false;
         clearInterval(GAME.eggsInterval);
     },
     restartGame: function () {
@@ -32,7 +34,11 @@ var GAME = {
         if(!this.isGameOver) {
             clearInterval(this.eggsInterval);
         }
-        WOLFNAVIGATION.actionsAvailable = true;
+        if(this.isDemoGame) {
+            WOLFNAVIGATION.actionsAvailable = false;
+        } else {
+            WOLFNAVIGATION.actionsAvailable = true;
+        }
         this.resetLvl();
         WOLF.resetLifes();
         this.resetScore();
