@@ -22,6 +22,7 @@ var WOLF = {
         wolfId: 'wolf',
         onLeftSide: 'onLeft',
         onRightSide: 'onRight',
+        currentSide: null,
 
         renderWolf: function() {
             wolfBodyElement = document.createElement('div');
@@ -38,6 +39,14 @@ var WOLF = {
 
     getCurrentBasketPosition: function() {
         return this.basket.currentPosition;
+    },
+
+    updateCurrentWolfSide: function(current) {
+        this.wolfBody.currentPosition = current.toLowerCase().split('on')[1];
+    },
+
+    getCurrentWolfSide: function () {
+        return this.wolfBody.currentPosition;
     },
 
     resetWolfPosition: function () {
