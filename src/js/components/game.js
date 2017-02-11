@@ -9,24 +9,31 @@ var GAME = {
     getActionBtn: function(btnType) {
         return document.querySelector('button[data-game="' + btnType + '"]')
     },
+
     getRoundTime: function () {
         return this.roundTime;
     },
+
     checkFall: function() {
         var basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
 
-        if (CHICKENS.getCurrentChicken()[0] === WOLF.getCurrentBasketPosition() && CHICKENS.getCurrentChicken()[0].indexOf(WOLF.getCurrentWolfSide()) !== -1) {
+        if (CHICKENS.getCurrentChicken() === WOLF.getCurrentBasketPosition() && CHICKENS.getCurrentChicken().indexOf(WOLF.getCurrentWolfSide()) !== -1) {
             this.updateScore(this.currentScore, this.cycleScore);
         } else {
             WOLF.updateLifes();
         }
+        if(this.isDemoGame) {
+            this.ai();
+        }
         CHICKENS.removeCurrentChicken();
     },
+
     gameOver: function () {
         this.isGameOver = true;
         WOLFNAVIGATION.actionsAvailable = false;
         clearInterval(GAME.eggsInterval);
     },
+
     restartGame: function () {
         if(this.isGameOver) {
             this.isGameOver = false;
@@ -47,5 +54,9 @@ var GAME = {
         HARE.setHareVisible(true);
         EGGS.resetEgg();
         CHICKENS.resetChickens();
+    },
+
+    ai: function () {
+        console.log('ai');
     }
 };

@@ -31,7 +31,7 @@ var CHICKENS = {
     },
 
     getCurrentChicken: function () {
-        return this.currentChicken;
+        return this.currentChicken[0];
     },
 
     resetChickens: function () {
