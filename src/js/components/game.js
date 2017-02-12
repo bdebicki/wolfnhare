@@ -15,8 +15,6 @@ var GAME = {
     },
 
     checkFall: function() {
-        var basket = WOLF.basket.currentPosition ? WOLF.basket.currentPosition.toLowerCase().split('on')[1] : null;
-
         if (CHICKENS.getCurrentChicken() === WOLF.getCurrentBasketPosition() && CHICKENS.getCurrentChicken().indexOf(WOLF.getCurrentWolfSide()) !== -1) {
             this.updateScore(this.currentScore, this.cycleScore);
         } else {

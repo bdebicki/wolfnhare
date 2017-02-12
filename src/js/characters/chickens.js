@@ -1,10 +1,12 @@
 var CHICKENS = {
     chickenClass: 'chicken',
-    firstChicken: 'topLeft',
-    secondChicken: 'bottomLeft',
-    thirdChicken: 'topRight',
-    fourthChicken: 'bottomRight',
-    currentChicken: [],
+    position: {
+        topLeft: 'topLeft',
+        bottomLeft: 'bottomLeft',
+        topRight: 'topRight',
+        bottomRight: 'bottomRight',
+        currentChicken: []
+    },
 
     getChicken: function(position) {
         for (var i = 0, chicken = document.getElementsByClassName(this.chickenClass); i<chicken.length; i++) {

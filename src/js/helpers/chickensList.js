@@ -1,9 +1,9 @@
 CHICKENS = (function (scope) {
     scope.list = [
-        scope.firstChicken,
-        scope.secondChicken,
-        scope.thirdChicken,
-        scope.fourthChicken
+        scope.position.topLeft,
+        scope.position.bottomLeft,
+        scope.position.topRight,
+        scope.position.bottomRight
     ];
 
     return scope;

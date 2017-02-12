@@ -3,16 +3,18 @@ var WOLF = {
 
     basket: {
         basketClass: 'basket',
-        onTopLeft: 'onTopLeft',
-        onTopRight: 'onTopRight',
-        onBottomLeft: 'onBottomLeft',
-        onBottomRight: 'onBottomRight',
-        currentPosition: null,
-        defaultPosition: function() {return this.onBottomLeft},
+        position: {
+            topLeft: 'onTopLeft',
+            topRight: 'onTopRight',
+            bottomLeft: 'onBottomLeft',
+            bottomRight: 'onBottomRight',
+            currentPosition: null,
+            defaultPosition: function() {return this.bottomLeft}
+        },
 
         renderBasket: function() {
             basketElement = document.createElement('span');
-            basketElement.classList.add(this.basketClass, this.defaultPosition());
+            basketElement.classList.add(this.basketClass, this.position.defaultPosition());
 
             return basketElement;
         }
@@ -20,9 +22,11 @@ var WOLF = {
 
     wolfBody: {
         wolfId: 'wolf',
-        onLeftSide: 'onLeft',
-        onRightSide: 'onRight',
-        currentSide: null,
+        position: {
+            leftSide: 'onLeft',
+            rightSide: 'onRight',
+            currentSide: null
+        },
 
         renderWolf: function() {
             wolfBodyElement = document.createElement('div');
@@ -34,24 +38,28 @@ var WOLF = {
     },
 
     updateCurrentBasketPosition: function(current) {
-        this.basket.currentPosition = current.toLowerCase().split('on')[1];
+        if (current === 'default') {
+            this.basket.position.currentPosition = null;
+        } else {
+            this.basket.position.currentPosition = current.toLowerCase();
+        }
     },
 
     getCurrentBasketPosition: function() {
-        return this.basket.currentPosition;
+        return this.basket.position.currentPosition;
     },
 
     updateCurrentWolfSide: function(current) {
-        this.wolfBody.currentPosition = current.toLowerCase().split('on')[1];
+        this.wolfBody.position.currentPosition = current.toLowerCase().split('on')[1];
     },
 
     getCurrentWolfSide: function () {
-        return this.wolfBody.currentPosition;
+        return this.wolfBody.position.currentPosition;
     },
 
     resetWolfPosition: function () {
         this.resetWolfSide();
-        this.setBasketPosition(this.basket.defaultPosition());
+        this.setBasketPosition('default');
     },
 
     render: function () {

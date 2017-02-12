@@ -4,7 +4,7 @@ WOLF = (function (scope) {
         rightTopKey = 'l',
         rightBottomKey = ',',
         clickEventCondition = function (event, trigger) {
-            return event.target.classList.contains(WOLFNAVIGATION[trigger]);
+            return event.target.classList.contains(WOLFNAVIGATION.btns[trigger]);
         };
 
     window.addEventListener('keydown', function(event) {
@@ -14,16 +14,16 @@ WOLF = (function (scope) {
 
         switch (event.key) {
             case leftTopKey:
-                WOLF.setWolfPose('onLeftSide', 'onTopLeft');
+                WOLF.setWolfPose('leftSide', 'topLeft');
                 break;
             case leftBottomKey:
-                WOLF.setWolfPose('onLeftSide', 'onBottomLeft');
+                WOLF.setWolfPose('leftSide', 'bottomLeft');
                 break;
             case rightTopKey:
-                WOLF.setWolfPose('onRightSide', 'onTopRight');
+                WOLF.setWolfPose('rightSide', 'topRight');
                 break;
             case rightBottomKey:
-                WOLF.setWolfPose('onRightSide', 'onBottomRight');
+                WOLF.setWolfPose('rightSide', 'bottomRight');
                 break;
             default:
                 return null;
@@ -34,14 +34,14 @@ WOLF = (function (scope) {
 
     for (var i = 0, navBtns = WOLFNAVIGATION.getNavBtn(); i < navBtns.length; i++) {
         navBtns[i].addEventListener('click', function(event) {
-            if (clickEventCondition(event, 'topLeftBtn') && WOLFNAVIGATION.actionsAvailable === true) {
-                WOLF.setWolfPose('onLeftSide', 'onTopLeft');
-            } else if (clickEventCondition(event, 'bottomLeftBtn') && WOLFNAVIGATION.actionsAvailable === true) {
-                WOLF.setWolfPose('onLeftSide', 'onBottomLeft');
-            } else if (clickEventCondition(event, 'topRightBtn') && WOLFNAVIGATION.actionsAvailable === true) {
-                WOLF.setWolfPose('onRightSide', 'onTopRight');
-            } else if (clickEventCondition(event, 'bottomRightBtn') && WOLFNAVIGATION.actionsAvailable === true) {
-                WOLF.setWolfPose('onRightSide', 'onBottomRight');
+            if (clickEventCondition(event, 'topLeft') && WOLFNAVIGATION.actionsAvailable === true) {
+                WOLF.setWolfPose('leftSide', 'topLeft');
+            } else if (clickEventCondition(event, 'bottomLeft') && WOLFNAVIGATION.actionsAvailable === true) {
+                WOLF.setWolfPose('leftSide', 'bttomLeft');
+            } else if (clickEventCondition(event, 'topRight') && WOLFNAVIGATION.actionsAvailable === true) {
+                WOLF.setWolfPose('rightSide', 'topRight');
+            } else if (clickEventCondition(event, 'bottomRight') && WOLFNAVIGATION.actionsAvailable === true) {
+                WOLF.setWolfPose('rightSide', 'bottomRight');
             }
         }, false);
     };

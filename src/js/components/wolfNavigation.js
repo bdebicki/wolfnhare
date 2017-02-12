@@ -1,10 +1,12 @@
 var WOLFNAVIGATION = {
     navId: 'wolfNavigation',
     navBtnClass: 'navigationBtn',
-    topLeftBtn: 'topLeft',
-    bottomLeftBtn: 'bottomLeft',
-    topRightBtn: 'topRight',
-    bottomRightBtn: 'bottomRight',
+    btns: {
+        topLeft: 'topLeft',
+        bottomLeft: 'bottomLeft',
+        topRight: 'topRight',
+        bottomRight: 'bottomRight'
+    },
     actionsAvailable: false,
 
     getNavBtn: function() {
