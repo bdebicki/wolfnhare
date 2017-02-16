@@ -20,16 +20,16 @@ var CHICKENS = {
         currentChicken: []
     },
 
-    getChicken: function(position) {
-        for (var i = 0, chicken = document.getElementsByClassName(this.chickenClass); i<chicken.length; i++) {
-            if (chicken[i].classList.contains(position)) {
-                return chicken[i];
-            }
-        }
-    },
+    // getChicken: function(position) {
+    //     for (var i = 0, chicken = document.getElementsByClassName(this.chickenClass); i<chicken.length; i++) {
+    //         if (chicken[i].classList.contains(position)) {
+    //             return chicken[i];
+    //         }
+    //     }
+    // },
 
     addCurrentChicken: function (current) {
-        this.currentChicken.push(current.toLowerCase());
+        this.currentChicken.push(CHICKENS.position[current].state);
     },
 
     removeCurrentChicken: function () {
@@ -38,7 +38,7 @@ var CHICKENS = {
 
     drawChicken: function () {
         var chickenPosition = CHICKENS.list[Math.floor(Math.random() * CHICKENS.list.length)],
-            chicken = document.querySelector('.chicken.' + chickenPosition);
+            chicken = document.querySelector('.chicken.' + CHICKENS.position[chickenPosition].cssClass);
 
         this.addCurrentChicken(chickenPosition);
         return chicken;

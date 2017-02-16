@@ -1,9 +1,9 @@
 CHICKENS = (function (scope) {
     scope.list = [
-        scope.position.topLeft,
-        scope.position.bottomLeft,
-        scope.position.topRight,
-        scope.position.bottomRight
+        'topLeft',
+        'bottomLeft',
+        'topRight',
+        'bottomRight'
     ];
 
     return scope;
