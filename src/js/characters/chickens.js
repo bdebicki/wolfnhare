@@ -7,7 +7,7 @@ var CHICKENS = {
         },
         bottomLeft: {
             cssClass: 'bottomLeft',
-            state: 'bottom:eft'
+            state: 'bottomLeft'
         },
         topRight: {
             cssClass: 'topRight',
@@ -19,7 +19,7 @@ var CHICKENS = {
         },
         currentChicken: []
     },
-    
+
     addCurrentChicken: function (current) {
         this.currentChicken.push(CHICKENS.position[current].state);
     },
