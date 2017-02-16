@@ -4,17 +4,34 @@ var WOLF = {
     basket: {
         basketClass: 'basket',
         position: {
-            topLeft: 'onTopLeft',
-            topRight: 'onTopRight',
-            bottomLeft: 'onBottomLeft',
-            bottomRight: 'onBottomRight',
-            currentPosition: null,
-            defaultPosition: function() {return this.bottomLeft}
+            topLeft: {
+                cssClass: 'onTopLeft',
+                state: 'topLeft'
+            },
+            topRight: {
+                cssClass: 'onTopRight',
+                state: 'topRight'
+            },
+            bottomLeft: {
+                cssClass: 'onBottomLeft',
+                state: 'bottomLeft'
+            },
+            bottomRight: {
+                cssClass: 'onBottomRight',
+                state: 'bottomRight'
+            },
+            currentPosition: {
+                state: null
+            },
+            defaultPosition: {
+                cssClass: function () {return WOLF.basket.position.bottomLeft.cssClass},
+                state: function () {return WOLF.basket.position.currentPosition.state}
+            }
         },
 
         renderBasket: function() {
             basketElement = document.createElement('span');
-            basketElement.classList.add(this.basketClass, this.position.defaultPosition());
+            basketElement.classList.add(WOLF.basket.basketClass, WOLF.basket.position.defaultPosition.cssClass());
 
             return basketElement;
         }
@@ -37,16 +54,16 @@ var WOLF = {
         }
     },
 
-    updateCurrentBasketPosition: function(current) {
+    updateBasketState: function(current) {
         if (current === 'default') {
-            this.basket.position.currentPosition = null;
+            this.basket.position.currentPosition.state = this.basket.position.defaultPosition.state();
         } else {
-            this.basket.position.currentPosition = current.toLowerCase();
+            this.basket.position.currentPosition.state = this.basket.position[current].state;
         }
     },
 
     getCurrentBasketPosition: function() {
-        return this.basket.position.currentPosition;
+        return this.basket.position.currentPosition.state;
     },
 
     updateCurrentWolfSide: function(current) {

@@ -1,10 +1,22 @@
 var CHICKENS = {
     chickenClass: 'chicken',
     position: {
-        topLeft: 'topLeft',
-        bottomLeft: 'bottomLeft',
-        topRight: 'topRight',
-        bottomRight: 'bottomRight',
+        topLeft: {
+            cssClass: 'topLeft',
+            state: 'topLeft'
+        },
+        bottomLeft: {
+            cssClass: 'bottomLeft',
+            state: 'bottom:eft'
+        },
+        topRight: {
+            cssClass: 'topRight',
+            state: 'topRight'
+        },
+        bottomRight: {
+            cssClass: 'bottomRight',
+            state: 'bottomRight'
+        },
         currentChicken: []
     },
 

@@ -18,17 +18,17 @@ WOLF = (function (scope) {
     };
 
     scope.setBasketPosition = function (position) {
-        scope.updateCurrentBasketPosition(position);
+        scope.updateBasketState(position);
 
         var basketElement = document.getElementsByClassName(scope.basket.basketClass)[0];
 
         if (position === 'default') {
-            var basketPosition = this.basket.position.defaultPosition();
+            var basketPosition = this.basket.position.defaultPosition.cssClass();
         } else {
-            var basketPosition = this.basket.position[position];
+            var basketPosition = this.basket.position[position].cssClass;
         }
         if (!basketElement.classList.contains(basketPosition)) {
-            basketElement.classList.remove(this.basket.position.topLeft, this.basket.position.topRight, this.basket.position.bottomLeft, this.basket.position.bottomRight);
+            basketElement.classList.remove(this.basket.position.topLeft.cssClass, this.basket.position.topRight.cssClass, this.basket.position.bottomLeft.cssClass, this.basket.position.bottomRight.cssClass);
             basketElement.classList.add(basketPosition);
         } else {
             return null;
