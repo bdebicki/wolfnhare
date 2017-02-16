@@ -19,15 +19,7 @@ var CHICKENS = {
         },
         currentChicken: []
     },
-
-    // getChicken: function(position) {
-    //     for (var i = 0, chicken = document.getElementsByClassName(this.chickenClass); i<chicken.length; i++) {
-    //         if (chicken[i].classList.contains(position)) {
-    //             return chicken[i];
-    //         }
-    //     }
-    // },
-
+    
     addCurrentChicken: function (current) {
         this.currentChicken.push(CHICKENS.position[current].state);
     },
