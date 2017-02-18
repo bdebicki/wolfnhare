@@ -7,6 +7,11 @@ GAME = (function (scope) {
         this.runRound();
     };
 
+    scope.renderGameInterface = function () {
+        scope.renderDefaultScore();
+        WOLF.renderLifes();
+    };
+
     scope.runRound = function () {
         scope.eggsInterval = setInterval(function () {
                 GAME.checkLvl();
@@ -21,12 +26,14 @@ GAME = (function (scope) {
 
     scope.startGameA = function () {
         this.isDemoGame = false;
+        this.renderGameInterface();
         this.setGameTypeStepTime('A');
         this.startGame();
     };
 
     scope.startGameB = function () {
         this.isDemoGame = false;
+        this.renderGameInterface();
         this.setGameTypeStepTime('B');
         this.startGame();
     };

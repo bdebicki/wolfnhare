@@ -46,11 +46,11 @@ var GAME = {
             WOLFNAVIGATION.actionsAvailable = false;
         } else {
             WOLFNAVIGATION.actionsAvailable = true;
+            WOLF.resetLifes();
+            this.resetScore();
+            this.isBonusAvailable(false);
         }
         this.resetLvl();
-        WOLF.resetLifes();
-        this.resetScore();
-        this.isBonusAvailable(false);
         WOLF.resetWolfPosition();
         HARE.setHareVisible(true);
         EGGS.resetEgg();
