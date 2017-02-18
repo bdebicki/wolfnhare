@@ -32,10 +32,10 @@ GAME = (function (scope) {
     };
 
     scope.startDemo = function () {
-        console.log('demo');
         scope.isDemoGame = true;
         this.setGameTypeStepTime('A');
         this.startGame();
+        this.autoSetWolfPose();
     };
 
     return scope;

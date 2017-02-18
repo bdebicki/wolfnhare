@@ -40,6 +40,10 @@ var CHICKENS = {
         return this.currentChicken[0];
     },
 
+    getCurrentChickenState: function () {
+        return this.getCurrentChicken().state;
+    },
+
     resetChickens: function () {
         this.currentChicken = [];
     }

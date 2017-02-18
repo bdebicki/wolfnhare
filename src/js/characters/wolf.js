@@ -6,19 +6,23 @@ var WOLF = {
         position: {
             topLeft: {
                 cssClass: 'onTopLeft',
-                state: 'topLeft'
+                state: 'topLeft',
+                wolfSide: 'leftSide'
             },
             topRight: {
                 cssClass: 'onTopRight',
-                state: 'topRight'
+                state: 'topRight',
+                wolfSide: 'rightSide'
             },
             bottomLeft: {
                 cssClass: 'onBottomLeft',
-                state: 'bottomLeft'
+                state: 'bottomLeft',
+                wolfSide: 'leftSide'
             },
             bottomRight: {
                 cssClass: 'onBottomRight',
-                state: 'bottomRight'
+                state: 'bottomRight',
+                wolfSide: 'rightSide'
             },
             currentPosition: {
                 state: null

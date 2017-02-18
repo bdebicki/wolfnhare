@@ -15,13 +15,16 @@ var GAME = {
     },
 
     checkFall: function() {
-        if (CHICKENS.getCurrentChicken() === WOLF.getCurrentBasketState() || CHICKENS.getCurrentChicken().indexOf(WOLF.getCurrentWolfState()) !== -1) {
-            this.updateScore(this.currentScore, this.cycleScore);
+        if(!this.isDemoGame) {
+            if (CHICKENS.getCurrentChickenState() === WOLF.getCurrentBasketState() || CHICKENS.getCurrentChickenState().indexOf(WOLF.getCurrentWolfState()) !== -1) {
+                this.updateScore(this.currentScore, this.cycleScore);
+            } else {
+                WOLF.updateLifes();
+            }
         } else {
-            WOLF.updateLifes();
-        }
-        if(this.isDemoGame) {
-            this.ai();
+            setTimeout(function () {
+                GAME.autoSetWolfPose();
+            }, 30);
         }
         CHICKENS.removeCurrentChicken();
     },
@@ -54,7 +57,9 @@ var GAME = {
         CHICKENS.resetChickens();
     },
 
-    ai: function () {
-        console.log('ai');
+    autoSetWolfPose: function () {
+        var actualWolfSide = WOLF.basket.position[CHICKENS.getCurrentChicken()].wolfSide;
+
+        WOLF.setWolfPose(actualWolfSide, CHICKENS.getCurrentChicken());
     }
 };
