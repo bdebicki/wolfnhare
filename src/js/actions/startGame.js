@@ -7,9 +7,18 @@ GAME = (function (scope) {
         this.runRound();
     };
 
-    scope.renderGameInterface = function () {
+    scope.gameSpecificSettings = function () {
+        WOLFNAVIGATION.actionsAvailable = true;
         scope.renderScore();
         WOLF.renderLifes();
+        WOLF.resetLifes();
+        this.resetScore();
+    };
+
+    scope.demoSpecificSettings = function () {
+        WOLFNAVIGATION.actionsAvailable = false;
+        WOLF.removeLifes();
+        this.removeScore();
     };
 
     scope.runRound = function () {
@@ -26,20 +35,21 @@ GAME = (function (scope) {
 
     scope.startGameA = function () {
         this.isDemoGame = false;
-        this.renderGameInterface();
+        this.gameSpecificSettings();
         this.setGameTypeStepTime('A');
         this.startGame();
     };
 
     scope.startGameB = function () {
         this.isDemoGame = false;
-        this.renderGameInterface();
+        this.gameSpecificSettings();
         this.setGameTypeStepTime('B');
         this.startGame();
     };
 
     scope.startDemo = function () {
         scope.isDemoGame = true;
+        this.demoSpecificSettings();
         this.setGameTypeStepTime('A');
         this.startGame();
         this.autoSetWolfPose();

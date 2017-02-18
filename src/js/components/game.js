@@ -42,16 +42,6 @@ var GAME = {
         if(!this.isGameOver) {
             clearInterval(this.eggsInterval);
         }
-        if(this.isDemoGame) {
-            WOLFNAVIGATION.actionsAvailable = false;
-            WOLF.removeLifes();
-            this.removeScore();
-        } else {
-            WOLFNAVIGATION.actionsAvailable = true;
-            WOLF.resetLifes();
-            this.resetScore();
-            this.isBonusAvailable(false);
-        }
         this.resetLvl();
         WOLF.resetWolfPosition();
         HARE.setHareVisible(true);

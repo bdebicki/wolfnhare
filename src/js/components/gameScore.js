@@ -39,6 +39,7 @@ GAME = (function (scope) {
         this.startScore = 0;
         this.currentScore = null;
         this.cycleScore = null;
+        this.isBonusAvailable(false);
 
         document.querySelector('.score').innerHTML = this.startScore;
     };
