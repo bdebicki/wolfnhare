@@ -1,13 +1,15 @@
 WOLF = (function (scope) {
     scope.resetWolfSide = function () {
-        document.getElementById(scope.wolfBody.wolfId).classList.remove(this.wolfBody.position.leftSide, this.wolfBody.position.rightSide);
+        document.getElementById(scope.wolfBody.wolfId).classList.remove(this.wolfBody.position.leftSide.cssClass, this.wolfBody.position.rightSide.cssClass);
     };
 
     scope.setWolfSide = function (side) {
-        scope.updateCurrentWolfSide(side);
+        scope.updateCurrentWolfState(side);
 
         var wolfElement = document.getElementById(scope.wolfBody.wolfId),
-            wolfSide = this.wolfBody.position[side];
+            wolfSide = this.wolfBody.position[side].cssClass;
+
+        console.log(side, wolfSide);
 
         if (!wolfElement.classList.contains(wolfSide)) {
             this.resetWolfSide();

@@ -40,9 +40,17 @@ var WOLF = {
     wolfBody: {
         wolfId: 'wolf',
         position: {
-            leftSide: 'onLeft',
-            rightSide: 'onRight',
-            currentSide: null
+            leftSide: {
+                cssClass: 'onLeft',
+                state: 'left'
+            },
+            rightSide: {
+                cssClass: 'onRight',
+                state: 'right'
+            },
+            currentPosition: {
+                state: null
+            }
         },
 
         renderWolf: function() {
@@ -66,16 +74,21 @@ var WOLF = {
         return this.basket.position.currentPosition.state;
     },
 
-    updateCurrentWolfSide: function(current) {
-        this.wolfBody.position.currentPosition = current.toLowerCase().split('on')[1];
+    updateCurrentWolfState: function(current) {
+        if (current === 'default') {
+            this.wolfBody.position.currentPosition.state = null;
+        } else {
+            this.wolfBody.position.currentPosition.state = this.wolfBody.position[current].state;
+        }
     },
 
-    getCurrentWolfSide: function () {
-        return this.wolfBody.position.currentPosition;
+    getCurrentWolfState: function () {
+        return this.wolfBody.position.currentPosition.state;
     },
 
     resetWolfPosition: function () {
         this.resetWolfSide();
+        this.updateCurrentWolfState('default');
         this.setBasketPosition('default');
     },
 
