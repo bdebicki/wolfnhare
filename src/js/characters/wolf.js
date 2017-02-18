@@ -70,11 +70,11 @@ var WOLF = {
         }
     },
 
-    getCurrentBasketPosition: function() {
+    getCurrentBasketState: function() {
         return this.basket.position.currentPosition.state;
     },
 
-    updateCurrentWolfState: function(current) {
+    updateWolfState: function(current) {
         if (current === 'default') {
             this.wolfBody.position.currentPosition.state = null;
         } else {
@@ -88,7 +88,7 @@ var WOLF = {
 
     resetWolfPosition: function () {
         this.resetWolfSide();
-        this.updateCurrentWolfState('default');
+        this.updateWolfState('default');
         this.setBasketPosition('default');
     },
 

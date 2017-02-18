@@ -4,7 +4,7 @@ WOLF = (function (scope) {
     };
 
     scope.setWolfSide = function (side) {
-        scope.updateCurrentWolfState(side);
+        scope.updateWolfState(side);
 
         var wolfElement = document.getElementById(scope.wolfBody.wolfId),
             wolfSide = this.wolfBody.position[side].cssClass;
