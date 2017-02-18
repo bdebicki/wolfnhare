@@ -9,8 +9,6 @@ WOLF = (function (scope) {
         var wolfElement = document.getElementById(scope.wolfBody.wolfId),
             wolfSide = this.wolfBody.position[side].cssClass;
 
-        console.log(side, wolfSide);
-
         if (!wolfElement.classList.contains(wolfSide)) {
             this.resetWolfSide();
             wolfElement.classList.add(wolfSide);
