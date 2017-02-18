@@ -63,7 +63,14 @@ WOLF = (function (scope) {
     };
 
     scope.removeLifes = function () {
-        document.getElementById(GAME.gameBodyId).removeChild(document.querySelector('.lifes'));
+        var game = document.getElementById(GAME.gameBodyId),
+            lifes = game.querySelector('.lifes');
+
+        if(lifes) {
+           game.removeChild(lifes);
+        } else {
+           return null;
+        }
     };
 
     return scope;

@@ -8,7 +8,7 @@ GAME = (function (scope) {
     };
 
     scope.renderGameInterface = function () {
-        scope.renderDefaultScore();
+        scope.renderScore();
         WOLF.renderLifes();
     };
 

@@ -9,9 +9,18 @@ GAME = (function (scope) {
         lifes: 0
     };
 
-    scope.getScoreContainer = function() {
-        return document.querySelector('.score');
+    scope.renderScore = function() {
+        var score = document.createElement('span');
+
+        score.classList.add('score');
+        score.innerHTML = scope.startScore;
+        document.getElementById(GAME.gameBodyId).appendChild(score);
     };
+
+    scope.isBonusAvailable = function(boolen) {
+        scope.doublePoints = boolen;
+    };
+
     scope.updateScore = function(score, tempScore) {
         var points = this.doublePoints ? 2 : 1,
             newScore = score + points,
@@ -23,23 +32,25 @@ GAME = (function (scope) {
 
         scope.currentScore = newScore;
         scope.cycleScore = newCycleScore;
-        scope.getScoreContainer().innerHTML = newScore;
+        document.querySelector('.score').innerHTML = newScore;
     };
-    scope.renderDefaultScore = function() {
-        scope.getScoreContainer().innerHTML = scope.startScore;
-    };
-    scope.isBonusAvailable = function(boolen) {
-        scope.doublePoints = boolen;
-    };
+
     scope.resetScore = function () {
         this.startScore = 0;
         this.currentScore = null;
         this.cycleScore = null;
-        this.renderDefaultScore();
+
+        document.querySelector('.score').innerHTML = this.startScore;
     };
 
     scope.removeScore = function () {
-        document.getElementById(GAME.gameBodyId).removeChild(document.querySelector('.score'));
+        var game = document.getElementById(GAME.gameBodyId),
+            score = game.querySelector('.score');
+        if(score) {
+            game.removeChild(score);
+        } else {
+          return null;
+        }
     };
 
     return scope;
