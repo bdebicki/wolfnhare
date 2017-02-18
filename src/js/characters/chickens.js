@@ -41,7 +41,7 @@ var CHICKENS = {
     },
 
     getCurrentChickenState: function () {
-        return this.getCurrentChicken().state;
+        return CHICKENS.position[this.getCurrentChicken()].state;
     },
 
     resetChickens: function () {
