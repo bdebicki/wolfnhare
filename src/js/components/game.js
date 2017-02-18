@@ -44,6 +44,7 @@ var GAME = {
         }
         if(this.isDemoGame) {
             WOLFNAVIGATION.actionsAvailable = false;
+            WOLF.removeLifes();
         } else {
             WOLFNAVIGATION.actionsAvailable = true;
             WOLF.resetLifes();

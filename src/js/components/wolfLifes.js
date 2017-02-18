@@ -62,5 +62,9 @@ WOLF = (function (scope) {
         }
     };
 
+    scope.removeLifes = function () {
+        document.getElementById(GAME.gameBodyId).removeChild(document.querySelector('.lifes'));
+    };
+
     return scope;
 })(WOLF);
