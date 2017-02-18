@@ -45,6 +45,7 @@ var GAME = {
         if(this.isDemoGame) {
             WOLFNAVIGATION.actionsAvailable = false;
             WOLF.removeLifes();
+            this.removeScore();
         } else {
             WOLFNAVIGATION.actionsAvailable = true;
             WOLF.resetLifes();

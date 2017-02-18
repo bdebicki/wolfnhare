@@ -38,5 +38,9 @@ GAME = (function (scope) {
         this.renderDefaultScore();
     };
 
+    scope.removeScore = function () {
+        document.getElementById(GAME.gameBodyId).removeChild(document.querySelector('.score'));
+    };
+
     return scope;
 })(GAME);
