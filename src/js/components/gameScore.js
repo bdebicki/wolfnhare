@@ -21,15 +21,20 @@ GAME = (function (scope) {
     };
 
     scope.updateScore = function(score) {
-        var points = this.doublePoints ? 2 : 1,
-            newScore = score + points;
+        if (scope.currentScore !== scope.pointsLimit) {
+            var points = this.doublePoints ? 2 : 1,
+                newScore = score + points;
 
-        if (newScore === scope.bonusCriteria.points && WOLF.usedLifes === scope.bonusCriteria.lifes) {
-            scope.isBonusAvailable(true);
+            if (newScore === scope.bonusCriteria.points && WOLF.usedLifes === scope.bonusCriteria.lifes) {
+                scope.isBonusAvailable(true);
+            }
+
+            scope.currentScore = newScore;
+            document.querySelector('.score').innerHTML = newScore;
+
+        } else {
+            scope.resetScore();
         }
-
-        scope.currentScore = newScore;
-        document.querySelector('.score').innerHTML = newScore;
     };
 
     scope.resetScore = function () {
