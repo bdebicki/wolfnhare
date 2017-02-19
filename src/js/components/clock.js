@@ -1,5 +1,6 @@
 var CLOCK = {
     clockClass: 'clock',
+    clockRefresh: 500,
 
     renderClock: function () {
         var clock = document.createElement('span');
@@ -7,8 +8,7 @@ var CLOCK = {
         clock.classList.add(this.clockClass);
 
         GAME.getGameBody().appendChild(clock);
-
-        setInterval(function() {CLOCK.updateTime()}, 200);
+        this.runClock();
     },
   
     removeClock: function () {
@@ -16,12 +16,13 @@ var CLOCK = {
 
         if(clock) {
             GAME.getGameBody().removeChild(clock);
+            clearInterval(this.clockInterval);
         } else {
             return null;
         }
     },
 
-    updateTime: function () {
+    setTime: function () {
         var time = new Date(),
             hours = time.getHours(),
             minutes = time.getMinutes(),
@@ -38,5 +39,13 @@ var CLOCK = {
         }
 
         document.querySelector('.' + CLOCK.clockClass).innerHTML = hours + ':' + minutes + ':' + seconds;
+    },
+
+    runClock: function () {
+        this.clockInterval = setInterval(function () {
+            CLOCK.setTime();
+        }, this.clockRefresh);
+
+        return this.clockInterval;
     }
 };
