@@ -9,6 +9,7 @@ GAME = (function (scope) {
 
     scope.gameSpecificSettings = function () {
         WOLFNAVIGATION.actionsAvailable = true;
+        CLOCK.removeClock();
         scope.renderScore();
         WOLF.renderLifes();
         WOLF.resetLifes();
@@ -19,6 +20,7 @@ GAME = (function (scope) {
         WOLFNAVIGATION.actionsAvailable = false;
         WOLF.removeLifes();
         this.removeScore();
+        CLOCK.renderClock();
     };
 
     scope.runRound = function () {

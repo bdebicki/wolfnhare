@@ -6,6 +6,10 @@ var GAME = {
     isGameOver: false,
     isDemoGame: true,
 
+    getGameBody: function () {
+        return document.getElementById(GAME.gameBodyId);
+    },
+
     getActionBtn: function(btnType) {
         return document.querySelector('button[data-game="' + btnType + '"]')
     },
