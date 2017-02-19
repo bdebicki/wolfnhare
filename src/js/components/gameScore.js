@@ -1,7 +1,6 @@
 GAME = (function (scope) {
     scope.startScore = 0;
     scope.currentScore = null;
-    scope.cycleScore = null;
     scope.doublePoints = false;
     scope.pointsLimit = 999;
     scope.bonusCriteria = {
@@ -21,24 +20,21 @@ GAME = (function (scope) {
         scope.doublePoints = boolen;
     };
 
-    scope.updateScore = function(score, tempScore) {
+    scope.updateScore = function(score) {
         var points = this.doublePoints ? 2 : 1,
-            newScore = score + points,
-            newCycleScore = tempScore + points;
+            newScore = score + points;
 
         if (newScore === scope.bonusCriteria.points && WOLF.usedLifes === scope.bonusCriteria.lifes) {
             scope.isBonusAvailable(true);
         }
 
         scope.currentScore = newScore;
-        scope.cycleScore = newCycleScore;
         document.querySelector('.score').innerHTML = newScore;
     };
 
     scope.resetScore = function () {
         this.startScore = 0;
         this.currentScore = null;
-        this.cycleScore = null;
         this.isBonusAvailable(false);
 
         document.querySelector('.score').innerHTML = this.startScore;

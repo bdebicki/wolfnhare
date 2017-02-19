@@ -21,7 +21,7 @@ var GAME = {
     checkFall: function() {
         if(!this.isDemoGame) {
             if (CHICKENS.getCurrentChickenState() === WOLF.getCurrentBasketState() || CHICKENS.getCurrentChickenState().indexOf(WOLF.getCurrentWolfState()) !== -1) {
-                this.updateScore(this.currentScore, this.cycleScore);
+                this.updateScore(this.currentScore);
             } else {
                 WOLF.updateLifes();
             }
