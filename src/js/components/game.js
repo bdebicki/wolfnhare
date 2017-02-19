@@ -37,6 +37,7 @@ var GAME = {
         this.isGameOver = true;
         WOLFNAVIGATION.actionsAvailable = false;
         clearInterval(GAME.eggsInterval);
+        HARE.stopHare();
     },
 
     restartGame: function () {

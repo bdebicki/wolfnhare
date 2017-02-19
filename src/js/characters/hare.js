@@ -52,13 +52,21 @@ var HARE = {
     },
 
     startTogglingHare: function () {
-        setTimeout(function() {
-            HARE.hideHare();
+        HARE.loopToggling = setTimeout(function() {
+            HARE.showHare();
+            HARE.hideHareWithDelay(HARE.delays.visibleTime, HARE.delays.hiddenTime);
+        }, HARE.delays.firstTimeShow);
 
-            setTimeout(function() {
-                HARE.showHare();
-                HARE.hideHareWithDelay(HARE.delays.visibleTime, HARE.delays.hiddenTime);
-            }, HARE.delays.firstTimeShow);
+        HARE.startToggling = setTimeout(function() {
+            HARE.hideHare();
+            HARE.loopToggling;
         }, HARE.delays.firstTimeHide);
+
+        return HARE.startToggling;
+    },
+
+    stopHare: function () {
+        clearTimeout(this.loopToggling);
+        clearTimeout(this.startToggling);
     }
 };
