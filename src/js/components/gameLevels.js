@@ -2,10 +2,19 @@ GAME = (function (scope) {
     scope.currentLvl = 1;
     scope.selectetGameStepTime = null;
 
-    scope.checkLvl = function () {
-        var nextLvl = scope.currentLvl + 1;
+    scope.getLvlsLength = function() {
+        return scope.lvls.length - 1;
+    };
 
-        if (scope.cycleScore === scope.lvls[nextLvl].startPoints) {
+    scope.checkLvl = function () {
+        var lvlsLength = scope.getLvlsLength();
+        if (lvlsLength === scope.currentLvl) {
+            var nextLvl = scope.currentLvl;
+        } else {
+            var nextLvl = scope.currentLvl + 1;
+        }
+
+        if (scope.cycleScore === scope.lvls[nextLvl].startPoints && nextLvl !== lvlsLength) {
             scope.switchLvl();
             scope.setRoundTime(nextLvl);
             clearInterval(GAME.eggsInterval);
