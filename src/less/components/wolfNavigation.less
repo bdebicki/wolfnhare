@@ -1,31 +1,68 @@
 /* COMPONENT: Wolf Area */
+@verticalOffset: -11px;
+@horizontalOffset: -9px;
 
 
 #wolfNavigation {
 	.navigationBtn {
 		width: 20px;
 		height: 20px;
+		border-radius: 100%;
 		position: absolute;
 		background: red;
 		cursor: pointer;
-		overflow: hidden;
 		text-indent: -5000px;
+
+		&:before {
+			position: absolute;
+			font-size: 15px;
+			font-weight: bold;
+			text-indent: 0;
+		}
 
 		&.topLeft {
 			left: 40px;
 			bottom: 150px;
+
+			&:before {
+				content: '\003C';
+				top: @verticalOffset;
+				left: @horizontalOffset;
+				transform: rotate(45deg);
+			}
 		}
 		&.bottomLeft {
 			left: 40px;
 			bottom: 100px;
+
+			&:before {
+				content: '\003C';
+				bottom: @verticalOffset;
+				left: @horizontalOffset;
+				transform: rotate(-45deg);
+			}
 		}
 		&.topRight {
 			right: 40px;
 			bottom: 150px;
+
+			&:before {
+				content: '\003E';
+				top: @verticalOffset;
+				right: @horizontalOffset;
+				transform: rotate(-45deg);
+			}
 		}
 		&.bottomRight {
 			right: 40px;
 			bottom: 100px;
+
+			&:before {
+				content: '\003E';
+				right: @horizontalOffset;
+				bottom: @verticalOffset;
+				transform: rotate(45deg);
+			}
 		}
 	}
 }
