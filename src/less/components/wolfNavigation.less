@@ -1,12 +1,19 @@
 /* COMPONENT: Wolf Area */
-@verticalOffset: -11px;
-@horizontalOffset: -9px;
+@arrowOffset-vertical: -8px;
+@arrowOffset-horizontal: -36px;
+@arrowAngle: 30deg;
+@arrowLeft: '\003C';
+@arrowRight: '\003E';
+@btnOffset-verticalTop: 106px;
+@btnOffset-verticalBottom: 21px;
+@btnOffset-horizontal: 54px;
+@btnSize: 59px;
 
 
 #wolfNavigation {
 	.navigationBtn {
-		width: 20px;
-		height: 20px;
+		width: @btnSize;
+		height: @btnSize;
 		border-radius: 100%;
 		position: absolute;
 		background: red;
@@ -15,53 +22,53 @@
 
 		&:before {
 			position: absolute;
-			font-size: 15px;
+			font-size: 50px;
 			font-weight: bold;
 			text-indent: 0;
 		}
 
 		&.topLeft {
-			left: 40px;
-			bottom: 150px;
+			left: @btnOffset-horizontal;
+			bottom: @btnOffset-verticalTop;
 
 			&:before {
-				content: '\003C';
-				top: @verticalOffset;
-				left: @horizontalOffset;
-				transform: rotate(45deg);
+				content: @arrowLeft;
+				top: @arrowOffset-vertical;
+				left: @arrowOffset-horizontal;
+				transform: rotate(@arrowAngle);
 			}
 		}
 		&.bottomLeft {
-			left: 40px;
-			bottom: 100px;
+			left: @btnOffset-horizontal;
+			bottom: @btnOffset-verticalBottom;
 
 			&:before {
-				content: '\003C';
-				bottom: @verticalOffset;
-				left: @horizontalOffset;
-				transform: rotate(-45deg);
+				content: @arrowLeft;
+				bottom: @arrowOffset-vertical;
+				left: @arrowOffset-horizontal;
+				transform: rotate(-@arrowAngle);
 			}
 		}
 		&.topRight {
-			right: 40px;
-			bottom: 150px;
+			right: @btnOffset-horizontal;
+			bottom: @btnOffset-verticalTop;
 
 			&:before {
-				content: '\003E';
-				top: @verticalOffset;
-				right: @horizontalOffset;
-				transform: rotate(-45deg);
+				content: @arrowRight;
+				top: @arrowOffset-vertical;
+				right: @arrowOffset-horizontal;
+				transform: rotate(-@arrowAngle);
 			}
 		}
 		&.bottomRight {
-			right: 40px;
-			bottom: 100px;
+			right: @btnOffset-horizontal;
+			bottom: @btnOffset-verticalBottom;
 
 			&:before {
-				content: '\003E';
-				right: @horizontalOffset;
-				bottom: @verticalOffset;
-				transform: rotate(45deg);
+				content: @arrowRight;
+				right: @arrowOffset-horizontal;
+				bottom: @arrowOffset-vertical;
+				transform: rotate(@arrowAngle);
 			}
 		}
 	}
