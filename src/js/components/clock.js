@@ -7,15 +7,15 @@ var CLOCK = {
 
         clock.classList.add(this.clockClass);
 
-        GAME.getGameBody().appendChild(clock);
+        GAME.getGameContainer().appendChild(clock);
         this.runClock();
     },
   
     removeClock: function () {
-        var clock = GAME.getGameBody().querySelector('.' + CLOCK.clockClass);
+        var clock = GAME.getGameContainer().querySelector('.' + CLOCK.clockClass);
 
         if(clock) {
-            GAME.getGameBody().removeChild(clock);
+            GAME.getGameContainer().removeChild(clock);
             clearInterval(this.clockInterval);
         } else {
             return null;

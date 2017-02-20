@@ -6,7 +6,7 @@ var GAME = {
     isGameOver: false,
     isDemoGame: true,
 
-    getGameBody: function () {
+    getGameContainer: function () {
         return document.getElementById(GAME.gameBodyId);
     },
 

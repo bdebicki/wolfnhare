@@ -18,7 +18,7 @@ GAME = (function (scope) {
 
         score.classList.add(scope.scoreClass);
         score.innerHTML = scope.startScore;
-        scope.getGameBody().appendChild(score);
+        scope.getGameContainer().appendChild(score);
     };
 
     scope.isBonusAvailable = function(boolen) {
@@ -51,7 +51,7 @@ GAME = (function (scope) {
     };
 
     scope.removeScore = function () {
-        var game = scope.getGameBody(),
+        var game = scope.getGameContainer(),
             score = game.querySelector('.' + score.getScoreContainer());
 
         if(score) {
