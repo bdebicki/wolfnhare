@@ -2,6 +2,10 @@ var CLOCK = {
     clockClass: 'clock',
     clockRefresh: 500,
 
+    getClockContainer: function () {
+        return GAME.getGameContainer().querySelector('.' + CLOCK.clockClass);
+    },
+
     renderClock: function () {
         var clock = document.createElement('span');
 
@@ -12,7 +16,7 @@ var CLOCK = {
     },
   
     removeClock: function () {
-        var clock = GAME.getGameContainer().querySelector('.' + CLOCK.clockClass);
+        var clock = this.getClockContainer();
 
         if(clock) {
             GAME.getGameContainer().removeChild(clock);
@@ -34,7 +38,7 @@ var CLOCK = {
             minutes = "0" + minutes;
         }
 
-        document.querySelector('.' + CLOCK.clockClass).innerHTML = hours + ':' + minutes;
+        this.getClockContainer().innerHTML = hours + ':' + minutes;
     },
 
     runClock: function () {
