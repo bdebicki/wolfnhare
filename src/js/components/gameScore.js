@@ -13,7 +13,7 @@ GAME = (function (scope) {
 
         score.classList.add('score');
         score.innerHTML = scope.startScore;
-        document.getElementById(GAME.gameBodyId).appendChild(score);
+        scope.getGameBody().appendChild(score);
     };
 
     scope.isBonusAvailable = function(boolen) {
@@ -46,8 +46,9 @@ GAME = (function (scope) {
     };
 
     scope.removeScore = function () {
-        var game = document.getElementById(GAME.gameBodyId),
+        var game = scope.getGameBody(),
             score = game.querySelector('.score');
+
         if(score) {
             game.removeChild(score);
         } else {
