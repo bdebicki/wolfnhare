@@ -1,5 +1,6 @@
 /* COMPONENT: Wolf Area */
-@arrowOffset-vertical: -8px;
+@arrowOffset-verticalTop: -8px;
+@arrowOffset-verticalBottom: -13px;
 @arrowOffset-horizontal: -36px;
 @arrowAngle: 30deg;
 @arrowLeft: '\003C';
@@ -22,9 +23,11 @@
 		text-indent: -5000px;
 
 		&:before {
+			height: 31px;
 			position: absolute;
 			font-size: 50px;
 			font-weight: bold;
+			line-height: 23px;
 			text-indent: 0;
 		}
 
@@ -34,7 +37,7 @@
 
 			&:before {
 				content: @arrowLeft;
-				top: @arrowOffset-vertical;
+				top: @arrowOffset-verticalTop;
 				left: @arrowOffset-horizontal;
 				transform: rotate(@arrowAngle);
 			}
@@ -45,7 +48,7 @@
 
 			&:before {
 				content: @arrowLeft;
-				bottom: @arrowOffset-vertical;
+				bottom: @arrowOffset-verticalBottom;
 				left: @arrowOffset-horizontal;
 				transform: rotate(-@arrowAngle);
 			}
@@ -56,7 +59,7 @@
 
 			&:before {
 				content: @arrowRight;
-				top: @arrowOffset-vertical;
+				top: @arrowOffset-verticalTop;
 				right: @arrowOffset-horizontal;
 				transform: rotate(-@arrowAngle);
 			}
@@ -68,7 +71,7 @@
 			&:before {
 				content: @arrowRight;
 				right: @arrowOffset-horizontal;
-				bottom: @arrowOffset-vertical;
+				bottom: @arrowOffset-verticalBottom;
 				transform: rotate(@arrowAngle);
 			}
 		}
