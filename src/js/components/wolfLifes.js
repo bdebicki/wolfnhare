@@ -20,7 +20,7 @@ WOLF = (function (scope) {
         }
 
         lifesContainer.appendChild(fragment);
-        document.getElementById(GAME.gameBodyId).appendChild(lifesContainer);
+        GAME.getGameBody().appendChild(lifesContainer);
     };
 
     updateUsedLifes = function (value) {
@@ -63,7 +63,7 @@ WOLF = (function (scope) {
     };
 
     scope.removeLifes = function () {
-        var game = document.getElementById(GAME.gameBodyId),
+        var game = GAME.getGameBody(),
             lifes = game.querySelector('.lifes');
 
         if(lifes) {
