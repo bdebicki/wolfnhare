@@ -52,7 +52,7 @@ GAME = (function (scope) {
 
     scope.removeScore = function () {
         var game = scope.getGameContainer(),
-            score = game.querySelector('.' + score.getScoreContainer());
+            score = game.querySelector('.' + scope.getScoreContainer());
 
         if(score) {
             game.removeChild(score);
