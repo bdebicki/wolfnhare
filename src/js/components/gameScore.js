@@ -14,11 +14,13 @@ GAME = (function (scope) {
     };
 
     scope.renderScore = function() {
-        var score = document.createElement('span');
+        if (!scope.getScoreContainer()) {
+            var score = document.createElement('span');
 
-        score.classList.add(scope.scoreClass);
-        score.innerHTML = scope.startScore;
-        scope.getGameContainer().appendChild(score);
+            score.classList.add(scope.scoreClass);
+            score.innerHTML = scope.startScore;
+            scope.getGameContainer().appendChild(score);
+        }
     };
 
     scope.isBonusAvailable = function(boolen) {
