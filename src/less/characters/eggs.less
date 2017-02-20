@@ -1,6 +1,8 @@
 /* GAME CHARACTER: eggs */
-@eggWidth: 7px;
-@eggHeight: 10px;
+@eggWidth: 10px;
+@eggHeight: 15px;
+@eggStepOffset: 5px;
+@eggStepDistance: 12px;
 
 
 .egg {
@@ -11,54 +13,54 @@
 	background: white;
 
 	&[data-egg-step="1"] {
-		top: @chickenHeight + @eggHeight;
+		top: @chickenHeight - 0.5 * @eggHeight;
 	}
 	&[data-egg-step="2"] {
-		top: @chickenHeight + 1.5 * @eggHeight;
+		top: @chickenHeight;
 	}
 	&[data-egg-step="3"] {
-		top: @chickenHeight + 2 * @eggHeight;
+		top: @chickenHeight + 0.5 * @eggHeight;
 	}
 	&[data-egg-step="4"] {
-		top: @chickenHeight + 2.5 * @eggHeight;
+		top: @chickenHeight + 1 * @eggHeight;
 	}
 	&[data-egg-step="5"] {
-		top: @chickenHeight + 3 * @eggHeight;
+		top: @chickenHeight + 1.5 * @eggHeight;
 	}
 
 	[data-egg-direction="fromLeftToRight"] & {
 		&[data-egg-step="1"] {
-			left: @chickenWidth + @eggWidth;
+			left: @chickenWidth + @eggStepOffset;
 		}
 		&[data-egg-step="2"] {
-			left: @chickenWidth + 5 * @eggWidth;
+			left: @chickenWidth + @eggStepOffset + @eggStepDistance;
 		}
 		&[data-egg-step="3"] {
-			left: @chickenWidth + 6 * @eggWidth;
+			left: @chickenWidth + @eggStepOffset + 2 * @eggStepDistance;
 		}
 		&[data-egg-step="4"] {
-			left: @chickenWidth + 7 * @eggWidth;
+			left: @chickenWidth + @eggStepOffset + 3 * @eggStepDistance;
 		}
 		&[data-egg-step="5"] {
-			left: @chickenWidth + 8 * @eggWidth;
+			left: @chickenWidth + @eggStepOffset + 4 * @eggStepDistance;
 		}
 	}
 
 	[data-egg-direction="fromRightToLeft"] & {
 		&[data-egg-step="1"] {
-			right: @chickenWidth + @eggWidth;
+			right: @chickenWidth + @eggStepOffset;
 		}
 		&[data-egg-step="2"] {
-			right: @chickenWidth + 5 * @eggWidth;
+			right: @chickenWidth + @eggStepOffset + @eggStepDistance;
 		}
 		&[data-egg-step="3"] {
-			right: @chickenWidth + 6 * @eggWidth;
+			right: @chickenWidth + @eggStepOffset + 2 * @eggStepDistance;
 		}
 		&[data-egg-step="4"] {
-			right: @chickenWidth + 7 * @eggWidth;
+			right: @chickenWidth + @eggStepOffset + 3 * @eggStepDistance;
 		}
 		&[data-egg-step="5"] {
-			right: @chickenWidth + 8 * @eggWidth;
+			right: @chickenWidth + @eggStepOffset + 4 * @eggStepDistance;
 		}
 	}
 }
