@@ -25,8 +25,7 @@ var CLOCK = {
     setTime: function () {
         var time = new Date(),
             hours = time.getHours(),
-            minutes = time.getMinutes(),
-            seconds = time.getSeconds();
+            minutes = time.getMinutes();
 
         if (hours < 10) {
             hours = "0" + hours;
@@ -34,11 +33,8 @@ var CLOCK = {
         if (minutes < 10) {
             minutes = "0" + minutes;
         }
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
 
-        document.querySelector('.' + CLOCK.clockClass).innerHTML = hours + ':' + minutes + ':' + seconds;
+        document.querySelector('.' + CLOCK.clockClass).innerHTML = hours + ':' + minutes;
     },
 
     runClock: function () {
