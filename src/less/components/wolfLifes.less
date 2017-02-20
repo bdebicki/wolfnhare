@@ -10,13 +10,35 @@
 
 	li {
 		visibility: hidden;
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		background: yellow;
+		text-indent: -5000px;
+		overflow: hidden;
+
+		+ li {
+			margin-left: 5px;
+		}
 
 		&.used {
 			visibility: visible;
 
-			&:not(.half) {
-				background: red;
+			&.half {
+				animation: toggle 2s infinite;
 			}
 		}
+	}
+}
+
+@keyframes toggle {
+	0% {
+		opacity: 0.05;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.05;
 	}
 }
