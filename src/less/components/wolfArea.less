@@ -1,8 +1,21 @@
 /* COMPONENT: Wolf Area */
+@screenZindex: 1;
 
 
 #wolfArea {
 	width: 210px;
 	height: 173px;
 	position: relative;
+
+	&:before {
+		content: '';
+		border: 1px solid #666;
+		background: #D7D7D7;
+		position: absolute;
+		top: -37px;
+		right: -93px;
+		bottom: -33px;
+		left: -93px;
+		z-index: @screenZindex;
+	}
 }
