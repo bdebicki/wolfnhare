@@ -1,4 +1,5 @@
 GAME = (function (scope) {
+    scope.scoreClass = 'score';
     scope.startScore = 0;
     scope.currentScore = null;
     scope.doublePoints = false;
@@ -8,10 +9,14 @@ GAME = (function (scope) {
         lifes: 0
     };
 
+    scope.getScoreContainer = function () {
+        return document.querySelector('.' + scope.scoreClass);
+    };
+
     scope.renderScore = function() {
         var score = document.createElement('span');
 
-        score.classList.add('score');
+        score.classList.add(scope.scoreClass);
         score.innerHTML = scope.startScore;
         scope.getGameBody().appendChild(score);
     };
@@ -30,7 +35,7 @@ GAME = (function (scope) {
             }
 
             scope.currentScore = newScore;
-            document.querySelector('.score').innerHTML = newScore;
+            scope.getScoreContainer().innerHTML = newScore;
 
         } else {
             scope.resetScore();
@@ -42,12 +47,12 @@ GAME = (function (scope) {
         this.currentScore = null;
         this.isBonusAvailable(false);
 
-        document.querySelector('.score').innerHTML = this.startScore;
+        scope.getScoreContainer().innerHTML = this.startScore;
     };
 
     scope.removeScore = function () {
         var game = scope.getGameBody(),
-            score = game.querySelector('.score');
+            score = game.querySelector('.' + score.getScoreContainer());
 
         if(score) {
             game.removeChild(score);
