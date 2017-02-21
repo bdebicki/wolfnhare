@@ -10,7 +10,7 @@ GAME = (function (scope) {
     scope.gameSpecificSettings = function () {
         WOLFNAVIGATION.actionsAvailable = true;
         CLOCK.removeClock();
-        if (!this.getScoreContainer()) {
+        if (!SCORE.getScoreContainer()) {
             SCORE.renderScore();
         } else {
             SCORE.resetScore();
