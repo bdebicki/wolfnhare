@@ -14,12 +14,12 @@ GAME = (function (scope) {
             var nextLvl = scope.currentLvl + 1;
         }
 
-        if (scope.currentScore === scope.lvls[nextLvl].startPoints && nextLvl !== lvlsLength) {
+        if (SCORE.currentScore === scope.lvls[nextLvl].startPoints && nextLvl !== lvlsLength) {
             scope.switchLvl();
             scope.setRoundTime(nextLvl);
             clearInterval(GAME.eggsInterval);
             scope.runRound();
-        } else if (scope.currentScore === scope.pointsLimit) {
+        } else if (SCORE.currentScore === SCORE.pointsLimit) {
             scope.resetLvl();
             clearInterval(GAME.eggsInterval);
             scope.runRound();

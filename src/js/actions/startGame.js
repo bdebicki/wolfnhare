@@ -10,16 +10,19 @@ GAME = (function (scope) {
     scope.gameSpecificSettings = function () {
         WOLFNAVIGATION.actionsAvailable = true;
         CLOCK.removeClock();
-        scope.renderScore();
+        if (!this.getScoreContainer()) {
+            SCORE.renderScore();
+        } else {
+            SCORE.resetScore();
+        }
         WOLF.renderLifes();
         WOLF.resetLifes();
-        this.resetScore();
     };
 
     scope.demoSpecificSettings = function () {
         WOLFNAVIGATION.actionsAvailable = false;
         WOLF.removeLifes();
-        this.removeScore();
+        SCORE.removeScore();
         CLOCK.renderClock();
     };
 

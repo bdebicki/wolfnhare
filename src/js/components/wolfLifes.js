@@ -34,8 +34,8 @@ WOLF = (function (scope) {
         var lifeUnused = document.querySelector('.' + scope.lifesClass + ' li:not(.' + scope.usedLifeClass + ')'),
             lifeUsedHalf = document.querySelector('.' + scope.lifesClass + ' li.' + scope.halfLifeClass);
 
-        if (this.usedLifes !== GAME.bonusCriteria.lifes) {
-            GAME.isBonusAvailable(false);
+        if (this.usedLifes !== SCORE.bonusCriteria.lifes) {
+            SCORE.isBonusAvailable(false);
         }
 
         if (lifeUsedHalf) {
