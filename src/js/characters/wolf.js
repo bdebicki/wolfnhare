@@ -139,5 +139,12 @@ var WOLF = {
     setWolfPose: function (wolfSide, basketPosition) {
         this.setWolfSide(wolfSide);
         this.setBasketPosition(basketPosition);
+    },
+
+    autoSetWolfPose: function () {
+        var actualWolfSide = WOLF.basket.position[CHICKENS.getCurrentChicken()].wolfSide;
+
+        WOLF.setWolfPose(actualWolfSide, CHICKENS.getCurrentChicken());
     }
+
 };

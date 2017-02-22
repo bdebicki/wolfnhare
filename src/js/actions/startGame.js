@@ -62,7 +62,7 @@ GAME = (function (scope) {
         this.demoSpecificSettings();
         this.setGameTypeStepTime('A');
         this.startGame();
-        this.autoSetWolfPose();
+        WOLF.autoSetWolfPose();
     };
 
     return scope;

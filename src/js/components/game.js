@@ -27,7 +27,7 @@ var GAME = {
             }
         } else {
             setTimeout(function () {
-                GAME.autoSetWolfPose();
+                WOLF.autoSetWolfPose();
             }, 30);
         }
         CHICKENS.removeCurrentChicken();
@@ -52,11 +52,5 @@ var GAME = {
         HARE.setHareVisible(true);
         EGGS.resetEgg();
         CHICKENS.resetChickens();
-    },
-
-    autoSetWolfPose: function () {
-        var actualWolfSide = WOLF.basket.position[CHICKENS.getCurrentChicken()].wolfSide;
-
-        WOLF.setWolfPose(actualWolfSide, CHICKENS.getCurrentChicken());
     }
 };
