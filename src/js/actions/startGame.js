@@ -15,13 +15,16 @@ GAME = (function (scope) {
         } else {
             SCORE.resetScore();
         }
-        WOLF.renderLifes();
-        WOLF.resetLifes();
+        if (!LIFES.getLifesContainer()) {
+            LIFES.renderLifes();
+        } else {
+            LIFES.resetLifes();
+        }
     };
 
     scope.demoSpecificSettings = function () {
         WOLFNAVIGATION.actionsAvailable = false;
-        WOLF.removeLifes();
+        LIFES.removeLifes();
         SCORE.removeScore();
         CLOCK.renderClock();
     };

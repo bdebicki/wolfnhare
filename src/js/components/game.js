@@ -23,7 +23,7 @@ var GAME = {
             if (CHICKENS.getCurrentChickenState() === WOLF.getCurrentBasketState() || CHICKENS.getCurrentChickenState().indexOf(WOLF.getCurrentWolfState()) !== -1) {
                 SCORE.updateScore(SCORE.currentScore);
             } else {
-                WOLF.updateLifes();
+                LIFES.updateLifes();
             }
         } else {
             setTimeout(function () {

@@ -30,7 +30,7 @@ var SCORE = {
             var points = this.doublePoints ? 2 : 1,
                 newScore = score + points;
 
-            if (newScore === this.bonusCriteria.points && WOLF.usedLifes === this.bonusCriteria.lifes) {
+            if (newScore === this.bonusCriteria.points && LIFES.usedLifes === this.bonusCriteria.lifes) {
               this.isBonusAvailable(true);
             }
 
