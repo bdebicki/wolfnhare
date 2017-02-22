@@ -52,5 +52,14 @@ var GAME = {
         HARE.setHareVisible(true);
         EGGS.resetEgg();
         CHICKENS.resetChickens();
+    },
+
+    initialize: function() {
+        WOLF.render();
+        setTimeout(function () {
+            GAME.startDemo();
+        }, 30);
     }
 };
+
+GAME.initialize();
