@@ -17,6 +17,17 @@ var GAME = {
     getRoundTime: function () {
         return this.roundTime;
     },
+    runRound: function () {
+        this.eggsInterval = setInterval(function () {
+            GAME.checkLvl();
+            if(!GAME.isGameOver) {
+                EGGS.addEgg()
+            }
+        }, this.getRoundTime());
+
+        return this.eggsInterval;
+    },
+
 
     checkFall: function() {
         if(!this.isDemoGame) {
@@ -40,6 +51,38 @@ var GAME = {
         HARE.stopHare();
     },
 
+    gameSpecificSettings: function () {
+        WOLFNAVIGATION.actionsAvailable = true;
+        CLOCK.removeClock();
+        if (!SCORE.getScoreContainer()) {
+            SCORE.renderScore();
+        }
+        if (SCORE.currentScore !== null) {
+            SCORE.resetScore();
+        }
+        if (!LIFES.getLifesContainer()) {
+           LIFES.renderLifes();
+        }
+        if (LIFES.usedLifes !== 0) {
+           LIFES.resetLifes();
+        }
+    },
+
+    demoSpecificSettings: function () {
+        WOLFNAVIGATION.actionsAvailable = false;
+        LIFES.removeLifes();
+        SCORE.removeScore();
+        CLOCK.renderClock();
+    },
+
+    startGame: function() {
+        this.gameId = this.gameId + 1;
+        this.restartGame();
+        HARE.startTogglingHare();
+        EGGS.addEgg();
+        this.runRound();
+    },
+
     restartGame: function () {
         if(this.isGameOver) {
             this.isGameOver = false;
@@ -52,6 +95,28 @@ var GAME = {
         HARE.setHareVisible(true);
         EGGS.resetEgg();
         CHICKENS.resetChickens();
+    },
+
+    startGameA: function () {
+        this.isDemoGame = false;
+        this.gameSpecificSettings();
+        this.setGameTypeStepTime('A');
+        this.startGame();
+    },
+
+    startGameB: function () {
+        this.isDemoGame = false;
+        this.gameSpecificSettings();
+        this.setGameTypeStepTime('B');
+        this.startGame();
+    },
+
+    startDemo: function () {
+        this.isDemoGame = true;
+        this.demoSpecificSettings();
+        this.setGameTypeStepTime('A');
+        this.startGame();
+        WOLF.autoSetWolfPose();
     },
 
     initialize: function() {
