@@ -12,12 +12,14 @@ GAME = (function (scope) {
         CLOCK.removeClock();
         if (!SCORE.getScoreContainer()) {
             SCORE.renderScore();
-        } else {
+        }
+        if (SCORE.currentScore !== null) {
             SCORE.resetScore();
         }
         if (!LIFES.getLifesContainer()) {
             LIFES.renderLifes();
-        } else {
+        }
+        if (LIFES.usedLifes !== 0) {
             LIFES.resetLifes();
         }
     };
