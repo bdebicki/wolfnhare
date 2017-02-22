@@ -23,6 +23,36 @@ var EGGS = {
         this.initialId = this.initialId + 1;
     },
 
+    updateStep: function(egg) {
+        var nextStep = this.initialStep,
+            maxStep = this.maxStep,
+            time = GAME.selectetGameStepTime,
+            update = function() {
+                var i = nextStep++;
+
+                if (i > maxStep) {
+                    if (GAME.gameId === parseInt(egg.dataset.inGame)) {
+                        if (!GAME.isGameOver) {
+                            GAME.checkFall();
+                        }
+                        EGGS.removeEgg(egg);
+                    }
+                    return false;
+                }
+
+                setTimeout(function() {
+                    if(!GAME.isGameOver) {
+                        if (i <= maxStep) {
+                           egg.dataset.eggStep = nextStep;
+                        }
+                        update();
+                    }
+                }, time);
+            };
+        return update();
+    },
+
+
     removeEgg: function(egg) {
         egg.parentNode.removeChild(egg);
         return false;
