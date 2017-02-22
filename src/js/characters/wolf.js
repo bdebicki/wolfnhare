@@ -66,6 +66,10 @@ var WOLF = {
         }
     },
 
+    render: function () {
+        document.getElementById(this.wolfAreaId).appendChild(this.wolfBody.renderWolf());
+    },
+
     updateBasketState: function(current) {
         if (current === 'default') {
             this.basket.position.currentPosition.state = this.basket.position.defaultPosition.state();
@@ -96,7 +100,44 @@ var WOLF = {
         this.setBasketPosition('default');
     },
 
-    render: function () {
-        document.getElementById(this.wolfAreaId).appendChild(this.wolfBody.renderWolf());
+    resetWolfSide: function () {
+        document.getElementById(this.wolfBody.wolfId).classList.remove(this.wolfBody.position.leftSide.cssClass, this.wolfBody.position.rightSide.cssClass);
+    },
+
+    setWolfSide: function (side) {
+        this.updateWolfState(side);
+
+        var wolfElement = document.getElementById(this.wolfBody.wolfId),
+            wolfSide = this.wolfBody.position[side].cssClass;
+
+        if (!wolfElement.classList.contains(wolfSide)) {
+            this.resetWolfSide();
+            wolfElement.classList.add(wolfSide);
+        } else {
+            return null;
+        }
+    },
+
+    setBasketPosition: function (position) {
+        this.updateBasketState(position);
+
+        var basketElement = document.getElementsByClassName(this.basket.basketClass)[0];
+
+        if (position === 'default') {
+            var basketPosition = this.basket.position.defaultPosition.cssClass();
+        } else {
+            var basketPosition = this.basket.position[position].cssClass;
+        }
+        if (!basketElement.classList.contains(basketPosition)) {
+            basketElement.classList.remove(this.basket.position.topLeft.cssClass, this.basket.position.topRight.cssClass, this.basket.position.bottomLeft.cssClass, this.basket.position.bottomRight.cssClass);
+            basketElement.classList.add(basketPosition);
+        } else {
+            return null;
+        }
+    },
+
+    setWolfPose: function (wolfSide, basketPosition) {
+        this.setWolfSide(wolfSide);
+        this.setBasketPosition(basketPosition);
     }
 };
