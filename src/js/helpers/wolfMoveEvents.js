@@ -1,9 +1,5 @@
 WOLF = (function (scope) {
-    var leftTopKey = 's',
-        leftBottomKey = 'x',
-        rightTopKey = 'l',
-        rightBottomKey = ',',
-        clickEventCondition = function (event, trigger) {
+    var clickEventCondition = function (event, trigger) {
             return event.target.classList.contains(WOLFNAVIGATION.btns[trigger]);
         };
 
@@ -13,16 +9,16 @@ WOLF = (function (scope) {
         }
 
         switch (event.key) {
-            case leftTopKey:
+            case GAME.navKey.leftTop:
                 WOLF.setWolfPose('leftSide', 'topLeft');
                 break;
-            case leftBottomKey:
+            case GAME.navKey.leftBottom:
                 WOLF.setWolfPose('leftSide', 'bottomLeft');
                 break;
-            case rightTopKey:
+            case GAME.navKey.rightTop:
                 WOLF.setWolfPose('rightSide', 'topRight');
                 break;
-            case rightBottomKey:
+            case GAME.navKey.rightBottom:
                 WOLF.setWolfPose('rightSide', 'bottomRight');
                 break;
             default:
