@@ -126,5 +126,3 @@ var GAME = {
         }, 30);
     }
 };
-
-GAME.initialize();
