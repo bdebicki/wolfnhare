@@ -8,7 +8,7 @@ WOLF = (function (scope) {
             if (clickEventCondition(event, 'topLeft') && WOLFNAVIGATION.actionsAvailable === true) {
                 WOLF.setWolfPose('leftSide', 'topLeft');
             } else if (clickEventCondition(event, 'bottomLeft') && WOLFNAVIGATION.actionsAvailable === true) {
-                WOLF.setWolfPose('leftSide', 'bttomLeft');
+                WOLF.setWolfPose('leftSide', 'bottomLeft');
             } else if (clickEventCondition(event, 'topRight') && WOLFNAVIGATION.actionsAvailable === true) {
                 WOLF.setWolfPose('rightSide', 'topRight');
             } else if (clickEventCondition(event, 'bottomRight') && WOLFNAVIGATION.actionsAvailable === true) {
