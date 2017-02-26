@@ -1,5 +1,3 @@
-GAME.initialize();
-
 GAME.getActionBtn('game-a').addEventListener('click', function () {
     GAME.startGameA();
 });
