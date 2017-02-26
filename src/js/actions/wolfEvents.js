@@ -1,4 +1,4 @@
-WOLF = (function (scope) {
+WOLFNAVIGATION = (function (scope) {
     var clickEventCondition = function (event, trigger) {
             return event.target.classList.contains(WOLFNAVIGATION.btns[trigger]);
         };
@@ -43,4 +43,4 @@ WOLF = (function (scope) {
     }, false);
 
   return scope;
-})(WOLF);
+})(WOLFNAVIGATION);
