@@ -1,5 +1,5 @@
-GAME = (function (scope) {
-    scope.lvls = [
+LEVELS = (function (scope) {
+    scope.lvlsList = [
         null,
         {eggsAtOnce: 1, startPoints: 0},
         {eggsAtOnce: 2, startPoints: 5},
@@ -12,4 +12,4 @@ GAME = (function (scope) {
     ];
 
     return scope;
-})(GAME);
+})(LEVELS);

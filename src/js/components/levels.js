@@ -2,7 +2,7 @@ var LEVELS = {
     currentLvl: 1,
 
     getLvlsLength: function() {
-        return GAME.lvls.length - 1;
+        return LEVELS.lvlsList.length - 1;
     },
 
     checkLvl: function () {
@@ -13,7 +13,7 @@ var LEVELS = {
             var nextLvl = this.currentLvl + 1;
         }
 
-        if (SCORE.currentScore === GAME.lvls[nextLvl].startPoints && nextLvl !== lvlsLength) {
+        if (SCORE.currentScore === LEVELS.lvlsList[nextLvl].startPoints && nextLvl !== lvlsLength) {
             this.switchLvl();
             GAME.setRoundTime(nextLvl);
             clearInterval(GAME.eggsInterval);

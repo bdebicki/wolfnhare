@@ -24,7 +24,7 @@ var GAME = {
     },
 
     setRoundTime: function (lvl) {
-        this.roundTime = (this.selectetGameStepTime * EGGS.maxStep) / GAME.lvls[lvl].eggsAtOnce + this.roundTimeDelay;
+        this.roundTime = (this.selectetGameStepTime * EGGS.maxStep) / LEVELS.lvlsList[lvl].eggsAtOnce + this.roundTimeDelay;
     },
 
     getRoundTime: function () {
