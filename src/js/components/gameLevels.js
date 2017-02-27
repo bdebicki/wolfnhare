@@ -1,6 +1,5 @@
 GAME = (function (scope) {
     scope.currentLvl = 1;
-    scope.selectetGameStepTime = null;
 
     scope.getLvlsLength = function() {
         return scope.lvls.length - 1;
@@ -27,16 +26,6 @@ GAME = (function (scope) {
     };
     scope.switchLvl = function () {
         return scope.currentLvl = scope.currentLvl + 1;
-    };
-    scope.setGameTypeStepTime = function (type) {
-        if (type === 'A') {
-            GAME.selectetGameStepTime = EGGS.stepTime.gameA;
-        } else if (type === 'B') {
-            GAME.selectetGameStepTime = EGGS.stepTime.gameB;
-        }
-    };
-    scope.setRoundTime = function (lvl) {
-        scope.roundTime = (GAME.selectetGameStepTime * EGGS.maxStep) / GAME.lvls[lvl].eggsAtOnce + this.roundTimeDelay;
     };
     scope.resetLvl = function () {
         this.currentLvl = 1;

@@ -2,6 +2,7 @@ var GAME = {
     gameBodyId: 'gameBody',
     roundTime: null,
     roundTimeDelay: 30,
+    selectetGameStepTime: null,
     gameId: 0,
     isGameOver: false,
     isDemoGame: true,
@@ -14,9 +15,22 @@ var GAME = {
         return document.querySelector('button[data-game="' + btnType + '"]')
     },
 
+    setGameTypeStepTime: function (type) {
+        if (type === 'A') {
+            this.selectetGameStepTime = EGGS.stepTime.gameA;
+        } else if (type === 'B') {
+            this.selectetGameStepTime = EGGS.stepTime.gameB;
+        }
+    },
+
+    setRoundTime: function (lvl) {
+        this.roundTime = (this.selectetGameStepTime * EGGS.maxStep) / GAME.lvls[lvl].eggsAtOnce + this.roundTimeDelay;
+    },
+
     getRoundTime: function () {
         return this.roundTime;
     },
+
     runRound: function () {
         this.eggsInterval = setInterval(function () {
             GAME.checkLvl();
