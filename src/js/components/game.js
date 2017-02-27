@@ -33,7 +33,8 @@ var GAME = {
 
     runRound: function () {
         this.eggsInterval = setInterval(function () {
-            GAME.checkLvl();
+            LEVELS.checkLvl();
+
             if(!GAME.isGameOver) {
                 EGGS.addEgg()
             }
@@ -104,7 +105,7 @@ var GAME = {
         if(!this.isGameOver) {
             clearInterval(this.eggsInterval);
         }
-        this.resetLvl();
+        LEVELS.resetLvl();
         WOLF.resetWolfPosition();
         HARE.setHareVisible(true);
         EGGS.resetEgg();
