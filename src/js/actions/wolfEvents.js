@@ -1,24 +1,24 @@
-WOLFNAVIGATION = (function (scope) {
+WOLF_NAVIGATION = (function (scope) {
     var clickEventCondition = function (event, trigger) {
-            return event.target.classList.contains(WOLFNAVIGATION.btns[trigger]);
+            return event.target.classList.contains(WOLF_NAVIGATION.btns[trigger]);
         };
 
-    for (var i = 0, navBtns = WOLFNAVIGATION.getNavBtn(); i < navBtns.length; i++) {
+    for (var i = 0, navBtns = WOLF_NAVIGATION.getNavBtn(); i < navBtns.length; i++) {
         navBtns[i].addEventListener('click', function(event) {
-            if (clickEventCondition(event, 'topLeft') && WOLFNAVIGATION.actionsAvailable === true) {
+            if (clickEventCondition(event, 'topLeft') && WOLF_NAVIGATION.actionsAvailable === true) {
                 WOLF.setWolfPose('leftSide', 'topLeft');
-            } else if (clickEventCondition(event, 'bottomLeft') && WOLFNAVIGATION.actionsAvailable === true) {
+            } else if (clickEventCondition(event, 'bottomLeft') && WOLF_NAVIGATION.actionsAvailable === true) {
                 WOLF.setWolfPose('leftSide', 'bottomLeft');
-            } else if (clickEventCondition(event, 'topRight') && WOLFNAVIGATION.actionsAvailable === true) {
+            } else if (clickEventCondition(event, 'topRight') && WOLF_NAVIGATION.actionsAvailable === true) {
                 WOLF.setWolfPose('rightSide', 'topRight');
-            } else if (clickEventCondition(event, 'bottomRight') && WOLFNAVIGATION.actionsAvailable === true) {
+            } else if (clickEventCondition(event, 'bottomRight') && WOLF_NAVIGATION.actionsAvailable === true) {
                 WOLF.setWolfPose('rightSide', 'bottomRight');
             }
         }, false);
     };
 
     window.addEventListener('keydown', function(event) {
-        if (event.defaultPrevented || WOLFNAVIGATION.actionsAvailable !== true) {
+        if (event.defaultPrevented || WOLF_NAVIGATION.actionsAvailable !== true) {
             return null;
         }
 
@@ -43,4 +43,4 @@ WOLFNAVIGATION = (function (scope) {
     }, false);
 
   return scope;
-})(WOLFNAVIGATION);
+})(WOLF_NAVIGATION);

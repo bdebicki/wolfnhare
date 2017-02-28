@@ -1,4 +1,4 @@
-var WOLFNAVIGATION = {
+var WOLF_NAVIGATION = {
     navId: 'wolfNavigation',
     navBtnClass: 'navigationBtn',
     btns: {
