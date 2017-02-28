@@ -61,13 +61,13 @@ var GAME = {
 
     gameOver: function () {
         this.isGameOver = true;
-        WOLFNAVIGATION.actionsAvailable = false;
+        WOLF_NAVIGATION.actionsAvailable = false;
         clearInterval(GAME.eggsInterval);
         HARE.stopHare();
     },
 
     gameSpecificSettings: function () {
-        WOLFNAVIGATION.actionsAvailable = true;
+        WOLF_NAVIGATION.actionsAvailable = true;
         CLOCK.removeClock();
         if (!SCORE.getScoreContainer()) {
             SCORE.renderScore();
@@ -84,7 +84,7 @@ var GAME = {
     },
 
     demoSpecificSettings: function () {
-        WOLFNAVIGATION.actionsAvailable = false;
+        WOLF_NAVIGATION.actionsAvailable = false;
         LIFES.removeLifes();
         SCORE.removeScore();
         CLOCK.renderClock();
@@ -116,6 +116,7 @@ var GAME = {
         this.isDemoGame = false;
         this.gameSpecificSettings();
         this.setGameTypeStepTime('A');
+        GAME_TYPE.renderGameType('A');
         this.startGame();
     },
 
@@ -123,6 +124,7 @@ var GAME = {
         this.isDemoGame = false;
         this.gameSpecificSettings();
         this.setGameTypeStepTime('B');
+        GAME_TYPE.renderGameType('B');
         this.startGame();
     },
 
