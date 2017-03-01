@@ -94,7 +94,7 @@ var GAME = {
         CLOCK.renderClock();
     },
 
-    startGame: function() {
+    runGame: function() {
         this.gameId = this.gameId + 1;
         this.restartGame();
         HARE.startTogglingHare();
@@ -116,25 +116,18 @@ var GAME = {
         CHICKENS.resetChickens();
     },
 
-    startGameA: function () {
+    startGame: function (gameType) {
         this.isDemoGame = false;
-        this.gameSpecificSettings('A');
-        this.setGameTypeStepTime('A');
-        this.startGame();
-    },
-
-    startGameB: function () {
-        this.isDemoGame = false;
-        this.gameSpecificSettings('B');
-        this.setGameTypeStepTime('B');
-        this.startGame();
+        this.gameSpecificSettings(gameType);
+        this.setGameTypeStepTime(gameType);
+        this.runGame();
     },
 
     startDemo: function () {
         this.isDemoGame = true;
         this.demoSpecificSettings();
         this.setGameTypeStepTime('A');
-        this.startGame();
+        this.runGame();
         WOLF.autoSetWolfPose();
     },
 

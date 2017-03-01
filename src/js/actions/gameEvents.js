@@ -1,10 +1,10 @@
 GAME = (function (scope) {
     GAME.getActionBtn('game-a').addEventListener('click', function () {
-        GAME.startGameA();
+        GAME.startGame('A');
     });
 
     GAME.getActionBtn('game-b').addEventListener('click', function () {
-        GAME.startGameB();
+        GAME.startGame('B');
     });
 
     GAME.getActionBtn('demo').addEventListener('click', function () {
