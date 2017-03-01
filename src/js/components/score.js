@@ -56,7 +56,7 @@ var SCORE = {
         if(score) {
             game.removeChild(score);
         } else {
-          return null;
+            return null;
         }
     }
 };

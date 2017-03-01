@@ -66,20 +66,23 @@ var GAME = {
         HARE.stopHare();
     },
 
-    gameSpecificSettings: function () {
+    gameSpecificSettings: function (type) {
         WOLF_NAVIGATION.actionsAvailable = true;
         CLOCK.removeClock();
         if (!SCORE.getScoreContainer()) {
             SCORE.renderScore();
-        }
-        if (SCORE.currentScore !== null) {
+        } else if (SCORE.currentScore !== null) {
             SCORE.resetScore();
         }
         if (!LIFES.getLifesContainer()) {
            LIFES.renderLifes();
-        }
-        if (LIFES.usedLifes !== 0) {
+        } else if (LIFES.usedLifes !== 0) {
            LIFES.resetLifes();
+        }
+        if (!GAME_TYPE.getGameTypeContainer()) {
+            GAME_TYPE.renderGameType(type);
+        } else {
+            GAME_TYPE.updateGameType(type);
         }
     },
 
@@ -87,6 +90,7 @@ var GAME = {
         WOLF_NAVIGATION.actionsAvailable = false;
         LIFES.removeLifes();
         SCORE.removeScore();
+        GAME_TYPE.removeGameType();
         CLOCK.renderClock();
     },
 
@@ -114,17 +118,15 @@ var GAME = {
 
     startGameA: function () {
         this.isDemoGame = false;
-        this.gameSpecificSettings();
+        this.gameSpecificSettings('A');
         this.setGameTypeStepTime('A');
-        GAME_TYPE.renderGameType('A');
         this.startGame();
     },
 
     startGameB: function () {
         this.isDemoGame = false;
-        this.gameSpecificSettings();
+        this.gameSpecificSettings('B');
         this.setGameTypeStepTime('B');
-        GAME_TYPE.renderGameType('B');
         this.startGame();
     },
 
@@ -138,6 +140,7 @@ var GAME = {
 
     initialize: function() {
         WOLF.render();
+
         setTimeout(function () {
             GAME.startDemo();
         }, 30);

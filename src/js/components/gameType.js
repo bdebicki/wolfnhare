@@ -2,11 +2,10 @@ var GAME_TYPE = {
     gameTypeClass: 'gameType',
     message: 'Game',
 
-    renderGameTypeContainer: function (type) {
+    renderGameTypeContainer: function () {
         var typeContainer = document.createElement('span');
 
         typeContainer.classList.add(this.gameTypeClass);
-        typeContainer.innerHTML = this.message + ' ' + type;
 
         GAME.getGameContainer().appendChild(typeContainer);
     },
@@ -16,6 +15,22 @@ var GAME_TYPE = {
     },
 
     renderGameType: function (type) {
-        this.renderGameTypeContainer(type);
+        this.renderGameTypeContainer();
+        this.updateGameType(type);
     },
+
+    updateGameType: function (type) {
+        this.getGameTypeContainer().innerHTML = this.message + ' ' + type;
+    },
+
+    removeGameType: function () {
+        var game = GAME.getGameContainer(),
+            gameType = game.querySelector('.' + this.gameTypeClass);
+
+        if (gameType) {
+            game.removeChild(gameType);
+        } else {
+            return null;
+        }
+    }
 };
